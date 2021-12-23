@@ -20,10 +20,10 @@ func start_playback():
 	
 func _on_Timer_StorePos_timeout():
 	if record:
-		var pos = self.owner.translation
 		var data = {
-			position = pos,
-			time = OS.get_ticks_msec() - start_time
+			pos = self.owner.translation,
+			time = OS.get_ticks_msec() - start_time,
+			rot = self.owner.rotation
 		}
 		positions.push_back(data)
 	else:
@@ -31,6 +31,7 @@ func _on_Timer_StorePos_timeout():
 		var peek = positions.front()
 		if peek:
 			if peek.time <= time:
-				owner.translation = peek.position
+				owner.translation = peek.pos
+				owner.rotation = peek.rot
 				positions.remove(0) # todo - use array pointer
 	pass 
