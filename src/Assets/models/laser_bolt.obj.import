@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/laser_bolt.obj-12e7657a57805300a6e83b0f8621d8cf.mesh"
+
+[deps]
+
+files=[ "res://.import/laser_bolt.obj-12e7657a57805300a6e83b0f8621d8cf.mesh" ]
+
+source_file="res://Assets/models/laser_bolt.obj"
+dest_files=[ "res://.import/laser_bolt.obj-12e7657a57805300a6e83b0f8621d8cf.mesh", "res://.import/laser_bolt.obj-12e7657a57805300a6e83b0f8621d8cf.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://SelectPlayersScene.gd" type="Script" id=1]
+[ext_resource path="res://Human/human_white.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/sfx/172206__fins__teleport.wav" type="AudioStream" id=3]
+[ext_resource path="res://Resources/GUI_Theme_Font_Large.tres" type="Theme" id=4]
+
+[node name="SelectPlayersScene" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Human_White1" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.24319, 0, 0 )
+visible = false
+
+[node name="Human_White4" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.771849, 0, 0 )
+visible = false
+
+[node name="Human_White2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5836, 0, 0 )
+visible = false
+
+[node name="Human_White3" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.45473, 0, 0 )
+visible = false
+
+[node name="Node2D" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="Node2D"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Node2D/CenterContainer"]
+margin_left = 546.0
+margin_top = 514.0
+margin_right = 1373.0
+margin_bottom = 565.0
+theme = ExtResource( 4 )
+text = "PRESS FIRE TO JOIN, PRESS ENTER TO START!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0755138, 3.69712, 8.63383 )
+
+[node name="AudioStreamPlayer_PlayerJoined" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )

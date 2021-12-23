@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/172206__fins__teleport.wav-07d0a58484c7f8bd499176a2aeaee064.sample"
+
+[deps]
+
+source_file="res://Assets/sfx/172206__fins__teleport.wav"
+dest_files=[ "res://.import/172206__fins__teleport.wav-07d0a58484c7f8bd499176a2aeaee064.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

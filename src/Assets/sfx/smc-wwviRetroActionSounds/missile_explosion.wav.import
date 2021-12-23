@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/missile_explosion.wav-6fd78cd23dd9e66da475e7b0cdf5830a.sample"
+
+[deps]
+
+source_file="res://Assets/sfx/smc-wwviRetroActionSounds/missile_explosion.wav"
+dest_files=[ "res://.import/missile_explosion.wav-6fd78cd23dd9e66da475e7b0cdf5830a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
