@@ -107,15 +107,13 @@ config/icon="res://icon.png"
 [autoload]
 
 Globals="*res://Globals.gd"
-Screen="res://Screen.gd"
+PositionData="res://DataModels/PositionData.gd"
 
 [display]
 
 window/size/width=1920
 window/size/height=1080
 window/size/resizable=false
-window/size/borderless=true
-window/size/fullscreen=true
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 

@@ -51,10 +51,18 @@ func _ready():
 		num += 1
 		pass
 		
+	start_recording()
 	$Sounds/AudioAmbience.play()
 	pass
 	
 
+func start_recording():
+	for player_id in Globals.player_nums:
+		var player = players[player_id]#self.get_node("Player_" + str(player_id))
+		player.start_recording()
+	pass
+	
+	
 func _input(event):
 	if players.has(0):
 		players[0]._input(event)
@@ -70,7 +78,6 @@ func _process(delta):
 		return
 		
 	time += delta
-
 	pass
 
 
@@ -106,10 +113,15 @@ func _on_HudTimer_timeout():
 	pass
 
 
-func _on_WinningArea_body_entered(body):
+func _on_Timer_Rewind_timeout():
+	start_playback()
 	pass
 
 
-func _on_RestartTimer_timeout():
-	get_tree().change_scene("res://Main.tscn")
+func start_playback():
+	for player_id in Globals.player_nums:
+		var player = players[player_id]#self.get_node("Player_" + str(player_id))
+		player.start_playback()
 	pass
+	
+	

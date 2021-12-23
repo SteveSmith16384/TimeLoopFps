@@ -66,7 +66,7 @@ func _ready():
 	
 
 func _input(event): #  Gets called by main for mouse movement!
-	if player_id == 0: #Globals.USE_MOUSE:
+	if player_id == 0:
 		if event is InputEventMouseMotion:
 			head.rotate_y(deg2rad(-event.relative.x * mouse_sensitivity))
 			
@@ -275,13 +275,6 @@ func set_first_person_mode(b):
 	pass
 
 
-#func restart(trans: Vector3):
-#	self.translation = trans
-#	self.translation.y = start_y
-#	alive = true
-#	pass
-#	
-	
 func hit_by_bullet():
 	if alive == false:
 		return
@@ -309,3 +302,14 @@ func _on_RestartTimer_timeout():
 	self.translation = start_pos
 	alive = true
 	pass
+
+
+func start_recording():
+	$RecordPosition.start_recording()
+	pass
+
+
+func start_playback():
+	$RecordPosition.start_playback()
+	pass
+
