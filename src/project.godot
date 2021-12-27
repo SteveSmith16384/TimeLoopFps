@@ -19,27 +19,27 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Bullet.gd"
 }, {
+"base": "KinematicBody",
+"class": "KinematicCharacter",
+"language": "GDScript",
+"path": "res://Player/KinematicCharacter/kinematic_character.gd"
+}, {
 "base": "KinematicCharacter",
 "class": "KinematicCharacterWithExportedAttributes",
 "language": "GDScript",
-"path": "res://Player/KinemticCharacter/kinematic_character_with_exported_attributes.gd"
+"path": "res://Player/KinematicCharacter/kinematic_character_with_exported_attributes.gd"
 }, {
 "base": "Spatial",
 "class": "Main",
 "language": "GDScript",
 "path": "res://Main.gd"
-}, {
-"base": "KinematicBody",
-"class": "Player",
-"language": "GDScript",
-"path": "res://Player/Player.gd"
 } ]
 _global_script_class_icons={
 "Bomb": "",
 "Bullet": "",
+"KinematicCharacter": "",
 "KinematicCharacterWithExportedAttributes": "",
-"Main": "",
-"Player": ""
+"Main": ""
 }
 
 [application]

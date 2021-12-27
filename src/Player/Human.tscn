@@ -1,6 +1,0 @@
-[gd_scene format=2]
-
-[node name="Human" type="Spatial"]
-
-[node name="CSGCylinder" type="CSGCylinder" parent="."]
-visible = false

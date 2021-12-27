@@ -14,9 +14,8 @@ func _process(delta):
 			if Globals.player_nums.has(i) == false:
 				#append_text("Player " + str(i) + " added")
 				Globals.player_nums.push_back(i)
-				#var c = self.get_child_count()
-				var human = get_node("Human_White" + str(i+1))
-				human.visible = true
+				#var human = get_node("Human_White" + str(i+1))
+				#human.visible = true
 				$AudioStreamPlayer_PlayerJoined.play()
 				pass
 			pass

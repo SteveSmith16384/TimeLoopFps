@@ -15,7 +15,7 @@ func _ready():
 
 	$HUD.update_time_label(time)
 	
-	var player_class = preload("res://Player/Player.tscn")
+	var player_class = preload("res://Player/KinematicCharacter/PlayerKinematicCharacter.tscn")
 
 	# Add a player. Possible values 0 - 3. Returns a TextureRect with some extra goodies attached
 	var num = 0
@@ -27,17 +27,17 @@ func _ready():
 		player.translation = get_node("StartPositions/StartPosition" + str(player_id)).translation
 		
 		# Set player colours
-		if player_id == 1:
-			var human_white_class = preload("res://Human/human_white.tscn")
-			var human_white = human_white_class.instance()
-			human_white.name = "Human"
-			player.add_child(human_white)
-		else:
-			var human_yellow_class = preload("res://Human/human_yellow.tscn")
-			var human_yellow = human_yellow_class.instance()
-			human_yellow.name = "Human"
-			player.add_child(human_yellow)
-			pass
+#		if player_id == 1:
+#		var human_white_class = preload("res://Player/KinematicCharacter/PlayerKinematicCharacter.tscn")
+#		var human_white = human_white_class.instance()
+#			human_white.name = "Human"
+#		player.add_child(human_white)
+#		else:
+#			var human_yellow_class = preload("res://Human/human_yellow.tscn")
+#			var human_yellow = human_yellow_class.instance()
+#			human_yellow.name = "Human"
+#			player.add_child(human_yellow)
+#			pass
 			
 		render.viewport.add_child(player)
 		
@@ -46,7 +46,7 @@ func _ready():
 		
 		render.viewport.add_child(player.hud)
 
-		player.get_node("Human").scale = Vector3(0.17, 0.17, 0.17)
+#		player.get_node("Human").scale = Vector3(0.17, 0.17, 0.17)
 		players[player_id] = player
 		
 		num += 1
