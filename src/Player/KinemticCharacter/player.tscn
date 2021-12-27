@@ -1,0 +1,1859 @@
+[gd_scene load_steps=42 format=2]
+
+[ext_resource path="res://Player/KinemticCharacter/kinematic_character_with_exported_attributes.gd" type="Script" id=1]
+[ext_resource path="res://Player/KinemticCharacter/Materials/blue_spatialmaterial.tres" type="Material" id=2]
+[ext_resource path="res://Player/KinemticCharacter/Materials/yellow_spatialmaterial.tres" type="Material" id=3]
+[ext_resource path="res://Player/KinemticCharacter/Materials/red_spatialmaterial.tres" type="Material" id=4]
+[ext_resource path="res://Player/KinemticCharacter/character_animation_tree.gd" type="Script" id=5]
+
+[sub_resource type="CapsuleShape" id=1]
+height = 1.5
+
+[sub_resource type="CapsuleMesh" id=2]
+material = ExtResource( 2 )
+
+[sub_resource type="CubeMesh" id=3]
+
+[sub_resource type="CubeMesh" id=4]
+
+[sub_resource type="CubeMesh" id=5]
+material = ExtResource( 3 )
+size = Vector3( 0.6, 0.4, 1 )
+
+[sub_resource type="SphereMesh" id=6]
+material = ExtResource( 4 )
+radius = 0.375
+height = 0.75
+radial_segments = 32
+rings = 16
+
+[sub_resource type="Animation" id=7]
+resource_name = "Jump"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mesh/Body:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -0.000154018, -0.0360047, 0.0450064 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Mesh/Body:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 90, 48.6197, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Mesh/Body:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Mesh/RightFoot:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.77, -1.55, -0.4 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Mesh/RightFoot:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 23.5633, 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Mesh/RightFoot:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Mesh/LeftFoot:translation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -0.77, -1.619, 0.117204 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Mesh/LeftFoot:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -15.6237, 0, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Mesh/LeftFoot:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Mesh/RightHand:translation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1.17703, -0.0944698, -0.61898 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Mesh/RightHand:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 90, 0, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Mesh/RightHand:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Mesh/LeftHand:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -1.414, -0.4, 0.513229 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Mesh/LeftHand:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 90, 0, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Mesh/LeftHand:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Braking"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mesh/Body:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0.0471566, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Mesh/Body:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Mesh/Body:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Mesh/RightFoot:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.4, -1.453, -0.74 ), Vector3( 0.4, -1.39332, -0.74 ), Vector3( 0.4, -1.453, -0.74 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Mesh/RightFoot:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 25.3907, 0, 0 ), Vector3( 25.3907, 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Mesh/RightFoot:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Mesh/LeftFoot:translation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.4, -1.43, -0.729 ), Vector3( -0.4, -1.37032, -0.729 ), Vector3( -0.4, -1.43, -0.729 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Mesh/LeftFoot:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 25.3907, 0, 0 ), Vector3( 25.3907, 0, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Mesh/LeftFoot:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Mesh/RightHand:translation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.6, -0.4, -1.20293 ), Vector3( 0.6, -0.427154, -1.20293 ), Vector3( 0.6, -0.4, -1.20293 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Mesh/RightHand:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Mesh/RightHand:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Mesh/LeftHand:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.6, -0.4, -1.20293 ), Vector3( -0.6, -0.427154, -1.20293 ), Vector3( -0.6, -0.4, -1.20293 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Mesh/LeftHand:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Mesh/LeftHand:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mesh/Body:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Mesh/Body:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 75, 0, 0 ), Vector3( 75, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Mesh/Body:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Mesh/RightFoot:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.77, -1.645, 0 ), Vector3( 0.77, -1.63662, 0 ), Vector3( 0.77, -1.645, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Mesh/RightFoot:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -20.2361, -9.46874, 0 ), Vector3( -20.2361, -12.8225, 0 ), Vector3( -20.2361, -9.46874, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Mesh/RightFoot:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Mesh/LeftFoot:translation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.77, -1.92126, -0.414748 ), Vector3( -0.77, -1.94001, -0.414748 ), Vector3( -0.77, -1.92126, -0.414748 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Mesh/LeftFoot:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -33.2291, 9.61585, 0 ), Vector3( -33.2291, 10.9079, 0 ), Vector3( -33.2291, 9.61585, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Mesh/LeftFoot:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Mesh/RightHand:translation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.414, -0.537201, -0.755045 ), Vector3( 1.39029, -0.545484, -0.769657 ), Vector3( 1.414, -0.537201, -0.755045 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Mesh/RightHand:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Mesh/RightHand:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Mesh/LeftHand:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -1.414, -0.214548, 0.335683 ), Vector3( -1.414, -0.186744, 0.335683 ), Vector3( -1.414, -0.214548, 0.335683 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Mesh/LeftHand:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Mesh/LeftHand:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "FirstAttack"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mesh/Body:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0.000347649, 0 ), Vector3( 0, 0.000347649, 0 ), Vector3( 0, 0.000347649, 0 ), Vector3( 0, 0.000347649, 0 ), Vector3( 0, 0.000347649, 0 ), Vector3( 0, 0.000347649, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Mesh/Body:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 90, 20.7792, 0 ), Vector3( 86.1643, -2.25354e-05, -29.0796 ), Vector3( 86.1643, -2.25354e-05, -29.0796 ), Vector3( 86.1643, 20.3526, -29.0796 ), Vector3( 86.1643, -18.5631, -29.0796 ), Vector3( 90, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Mesh/Body:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Mesh/RightFoot:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.77, -1.645, -0.523682 ), Vector3( 0.579218, -1.645, -0.844001 ), Vector3( 0.579218, -1.645, -0.844001 ), Vector3( -0.141373, -1.50632, -1.27732 ), Vector3( 0.767583, -1.50632, -0.549146 ), Vector3( 0.767583, -1.50632, -0.549146 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Mesh/RightFoot:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 32.8248, 0 ), Vector3( 0, 38.9332, 0 ), Vector3( 0, 38.9332, 0 ), Vector3( -2.87984, 49.5401, -3.37133 ), Vector3( -2.87984, 12.8582, -3.37133 ), Vector3( -2.87984, 3.05003, -3.37133 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Mesh/RightFoot:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Mesh/LeftFoot:translation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.512079, -1.619, 0.331414 ), Vector3( -0.591896, -1.619, 1.30914 ), Vector3( -0.591896, -1.619, 1.30914 ), Vector3( -0.591896, -1.619, 1.30914 ), Vector3( -1.4213, -1.619, 0.0103339 ), Vector3( -0.966319, -1.619, -0.265559 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Mesh/LeftFoot:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 48.4562, 0 ), Vector3( 0, 55.8641, 0 ), Vector3( 0, 55.8641, 0 ), Vector3( 0, 67.6816, 0 ), Vector3( 0, 41.528, 0 ), Vector3( 0, 15.4857, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Mesh/LeftFoot:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Mesh/RightHand:translation")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.414, -0.4, 0 ), Vector3( 0.78299, -0.105327, -1.67839 ), Vector3( 0.0167544, -0.105327, -4.04878 ), Vector3( 0.0167544, -0.105327, -4.04878 ), Vector3( -0.903301, -0.105327, -2.42775 ), Vector3( 1.5813, -0.105327, -1.11082 ), Vector3( 1.32729, -0.105327, 0.0318151 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Mesh/RightHand:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 90, 0, 0 ), Vector3( 90, 31.3624, 0 ), Vector3( 90, 9.91645, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Mesh/RightHand:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 0.8, 1.5, 0.8 ), Vector3( 1.5, 0.7, 1.5 ), Vector3( 1, 1, 1 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Mesh/LeftHand:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -1.15823, -0.0454707, -0.478838 ), Vector3( -1.30118, -0.0454707, -0.408317 ), Vector3( -1.30118, -0.0454707, -0.408317 ), Vector3( -1.30118, -0.0454707, -0.340621 ), Vector3( -1.19614, -0.0454707, -0.735823 ), Vector3( -1.19614, -0.0454707, -0.735823 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Mesh/LeftHand:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 90, 0, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Mesh/LeftHand:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mesh/Body:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.0207973, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0.01, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0.01, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Mesh/Body:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 90, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Mesh/Body:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Mesh/RightFoot:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.395617 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.77, -1.645, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Mesh/RightFoot:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.362283 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Mesh/RightFoot:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.262283 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Mesh/LeftFoot:translation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.446475 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -0.77, -1.619, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Mesh/LeftFoot:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.796474 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Mesh/LeftFoot:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.86314 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Mesh/RightHand:translation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.805465 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1.414, -0.4, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Mesh/RightHand:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.838797 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 90, 0, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Mesh/RightHand:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0.26126 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Mesh/LeftHand:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0.173099 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -1.414, -0.4, 0 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Mesh/LeftHand:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0.956778 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 90, 0, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Mesh/LeftHand:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0.0567129 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mesh/Body:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Mesh/Body:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 98.8782, 0, 0 ), Vector3( 98.8782, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Mesh/Body:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Mesh/RightFoot:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.99279, -1.50952, -0.553819 ), Vector3( 0.99279, -1.44648, -0.553819 ), Vector3( 0.99279, -1.50952, -0.553819 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Mesh/RightFoot:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 2.18326, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Mesh/RightFoot:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Mesh/LeftFoot:translation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.77, -1.97959, 0.196289 ), Vector3( -0.77, -2.05616, 0.196289 ), Vector3( -0.77, -1.97959, 0.196289 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Mesh/LeftFoot:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -4.38546, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Mesh/LeftFoot:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Mesh/RightHand:translation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.414, 0.195019, -0.438868 ), Vector3( 1.414, 0.232186, -0.476107 ), Vector3( 1.414, 0.195019, -0.438868 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Mesh/RightHand:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 90, 0, 0 ), Vector3( 91.5385, 0, 0 ), Vector3( 90, 0, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Mesh/RightHand:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Mesh/LeftHand:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -1.414, -0.542367, 0.192823 ), Vector3( -1.414, -0.587979, 0.260408 ), Vector3( -1.414, -0.542367, 0.192823 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Mesh/LeftHand:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Mesh/LeftHand:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "SecondAttack"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mesh/Body:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.45, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0.000347649, 0 ), Vector3( 0, 0.000347649, 0 ), Vector3( 0, 0.000347649, 0 ), Vector3( 0, 0.000347649, 0 ), Vector3( 0, 0.000347649, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Mesh/Body:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.45, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 90, 0, 0 ), Vector3( 86.1598, 1.12461e-05, 15.0455 ), Vector3( 84.0202, -4.32881, 17.4678 ), Vector3( 84.1027, -50.8402, -21.5579 ), Vector3( 86.16, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Mesh/Body:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Mesh/RightFoot:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.45, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.767583, -1.50632, -0.549146 ), Vector3( 1.12436, -1.50632, 0.276903 ), Vector3( 1.12436, -1.50632, 0.276903 ), Vector3( 0.354151, -1.50632, 1.33331 ), Vector3( 1.01116, -1.50632, -0.032005 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Mesh/RightFoot:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2, 0.45, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -2.87984, 3.05003, -3.37133 ), Vector3( 0, -15.4954, 0 ), Vector3( 0, -15.4954, 0 ), Vector3( 0, -43.0284, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Mesh/RightFoot:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Mesh/LeftFoot:translation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.2, 0.45, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.966319, -1.619, -0.265559 ), Vector3( -0.862205, -1.619, -0.798216 ), Vector3( -0.862205, -1.619, -0.798216 ), Vector3( -0.840136, -1.619, -0.529751 ), Vector3( -0.980816, -1.619, 0.0807024 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Mesh/LeftFoot:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.2, 0.45, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 15.4857, 0 ), Vector3( 0.795139, 4.58944, -9.80822 ), Vector3( 0.795139, 4.58944, -9.80822 ), Vector3( 0.795139, 4.58944, -9.80823 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Mesh/LeftFoot:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Mesh/RightHand:translation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.2, 0.45, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.32729, -0.105327, 0.0318151 ), Vector3( 1.0927, 0.25007, -0.501278 ), Vector3( 1.0927, 0.25007, -0.501278 ), Vector3( 1.29016, 0.25007, -0.0702966 ), Vector3( 1.0927, 0.25007, -0.501278 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Mesh/RightHand:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Mesh/RightHand:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Mesh/LeftHand:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.2, 0.45, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -1.19614, -0.0454707, -0.735823 ), Vector3( -0.657536, -0.0454707, -2.2052 ), Vector3( -0.00938487, -0.0454707, -4.70191 ), Vector3( -0.00938487, -0.0454707, -3.99032 ), Vector3( -1.26008, -0.0454707, -0.945308 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Mesh/LeftHand:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 90, 0, 0 ), Vector3( 90, -17.2817, 0 ), Vector3( 90, 0, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Mesh/LeftHand:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 0.45, 0.5, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1.5, 1.5, 1.5 ), Vector3( 2, 1, 2 ), Vector3( 1, 2, 1 ), Vector3( 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "ThirdAttack"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mesh/Body:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.35, 0.5, 0.7, 0.85, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0.000347649, 0 ), Vector3( 0, 0.000347649, 0 ), Vector3( 0, 0.000347649, 0 ), Vector3( 0, 0.000347649, 0 ), Vector3( 0, 0.000347649, 0 ), Vector3( 0, 0.000347649, 0 ), Vector3( 0, 0.000347649, 0 ), Vector3( 0, 0.000347649, 0 ), Vector3( 0, 0.01, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Mesh/Body:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.35, 0.5, 0.7, 0.85, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 86.16, 0, 0 ), Vector3( 78.0224, -77.1396, -30.9548 ), Vector3( 78.0224, -147.731, -30.9548 ), Vector3( 67.7427, -118.033, 64.3034 ), Vector3( 67.7427, 158.748, 64.3034 ), Vector3( 67.7427, 154.339, 64.3034 ), Vector3( 67.7427, 75.3508, 64.3034 ), Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Mesh/Body:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Mesh/RightFoot:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.35, 0.5, 0.55, 0.7, 0.85, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.01116, -1.50632, -0.032005 ), Vector3( 1.01116, -0.911246, 1.25221 ), Vector3( -0.907521, -0.911246, 1.51786 ), Vector3( -2.07131, -0.215561, 0.222627 ), Vector3( -1.00894, -0.215561, -1.65333 ), Vector3( 0.0252938, 0.0379348, -8.42716 ), Vector3( 0.0252938, 0.0379348, -9.43353 ), Vector3( 1.80678, 0.0379349, -4.76742 ), Vector3( 1.80678, -1.17774, -0.15178 ), Vector3( 0.77, -1.645, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Mesh/RightFoot:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.35, 0.5, 0.55, 0.7, 0.85, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, -47.5607, 0 ), Vector3( 0, -115.656, 0 ), Vector3( 0, -174.849, 0 ), Vector3( 0, 124.008, 0 ), Vector3( 0, 92.1728, 0 ), Vector3( 0, 92.1728, 0 ), Vector3( 28.0343, 37.252, -31.7175 ), Vector3( 0, 0, 47.4843 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Mesh/RightFoot:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5, 0.55, 0.7, 0.85, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 2, 2, 2 ), Vector3( 3, 2, 2 ), Vector3( 1, 1, 1.5 ), Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Mesh/LeftFoot:translation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.35, 0.5, 0.7, 0.85, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.980816, -1.619, 0.0807024 ), Vector3( -0.379422, -1.619, -0.426532 ), Vector3( 0.432671, -1.619, -0.426532 ), Vector3( 0.432671, -1.619, -0.426532 ), Vector3( -0.195321, -1.619, 0.908716 ), Vector3( -0.330005, -1.619, 0.908716 ), Vector3( -1.23107, -1.619, 0.0303276 ), Vector3( -0.941778, -1.619, -0.33357 ), Vector3( -0.77, -1.619, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Mesh/LeftFoot:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.35, 0.5, 0.7, 0.85, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, -29.8426, 0 ), Vector3( 0, -99.4041, 0 ), Vector3( 0, -152.141, 0 ), Vector3( 0, 108.225, 0 ), Vector3( 0, 96.6006, 0 ), Vector3( 0, 27.8156, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Mesh/LeftFoot:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Mesh/RightHand:translation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.35, 0.5, 0.7, 0.85, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.0927, 0.25007, -0.501278 ), Vector3( 0.213519, 0.25007, 1.87108 ), Vector3( -0.854073, 0.25007, 1.87108 ), Vector3( -1.63269, 0.25007, 0.107556 ), Vector3( 0.874108, 0.546392, -1.88361 ), Vector3( 0.874108, 0.546392, -1.88361 ), Vector3( 1.31124, -0.465928, -0.220581 ), Vector3( 0.510425, -0.247832, -0.926486 ), Vector3( 1.414, -0.4, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Mesh/RightHand:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.35, 0.5, 0.7, 0.85, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Mesh/RightHand:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Mesh/LeftHand:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.35, 0.5, 0.7, 0.85, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -1.26008, -0.0454707, -0.945308 ), Vector3( 0.269131, -0.0454707, -1.70627 ), Vector3( 1.72048, -0.0454707, -0.359921 ), Vector3( 0.837146, -0.0454707, 0.989981 ), Vector3( 0.0797672, -0.0454707, 1.59503 ), Vector3( -1.07938, -0.529222, 1.06656 ), Vector3( -1.32179, -0.529222, -0.0350657 ), Vector3( -1.32179, -0.529222, -1.24984 ), Vector3( -1.414, -0.4, 0 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Mesh/LeftHand:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.35, 0.5, 0.7, 0.85, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ), Vector3( 90, 0, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Mesh/LeftHand:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mesh/Body:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 83, 90, 90 ), Vector3( 83, -90, -90 ), Vector3( 83, 90, 90 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Mesh/RightFoot:translation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.77, -1.638, -0.5 ), Vector3( 0.77, -1.638, 0 ), Vector3( 0.77, -1.638, 0.5 ), Vector3( 0.77, -1.5, 0 ), Vector3( 0.77, -1.638, -0.5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Mesh/LeftFoot:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.77, -1.638, 0.5 ), Vector3( -0.77, -1.5, 0 ), Vector3( -0.77, -1.638, -0.5 ), Vector3( -0.77, -1.638, -7.15993e-08 ), Vector3( -0.77, -1.638, 0.5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Mesh/RightHand:translation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.414, -0.418, 0.5 ), Vector3( 1.414, -0.2, 0 ), Vector3( 1.414, -0.418, -0.5 ), Vector3( 1.414, -0.5, 0 ), Vector3( 1.414, -0.418, 0.5 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Mesh/LeftHand:translation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -1.414, -0.418, -0.5 ), Vector3( -1.414, -0.5, 0 ), Vector3( -1.414, -0.418, 0.5 ), Vector3( -1.414, -0.2, 0 ), Vector3( -1.414, -0.418, -0.5 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Mesh/Body:translation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.0207973 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Mesh/Body:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.0207973 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Mesh/RightFoot:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.75 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 8, 0, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Mesh/RightFoot:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Mesh/LeftFoot:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 8, 0, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Mesh/LeftFoot:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Mesh/RightHand:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Mesh/RightHand:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Mesh/LeftHand:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Mesh/LeftHand:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "Attached to Wall Falling"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "Braking"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "Falling"
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "Rising"
+
+[sub_resource type="AnimationNodeTimeScale" id=21]
+
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "Walking"
+
+[sub_resource type="AnimationNodeAnimation" id=23]
+animation = "FirstAttack"
+
+[sub_resource type="AnimationNodeAnimation" id=24]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=25]
+animation = "SecondAttack"
+
+[sub_resource type="AnimationNodeAnimation" id=26]
+animation = "ThirdAttack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id=30]
+states/FirstAttack/node = SubResource( 23 )
+states/FirstAttack/position = Vector2( 417, 322 )
+states/Idle/node = SubResource( 24 )
+states/Idle/position = Vector2( 1077, 322 )
+states/SecondAttack/node = SubResource( 25 )
+states/SecondAttack/position = Vector2( 641, 322 )
+states/ThirdAttack/node = SubResource( 26 )
+states/ThirdAttack/position = Vector2( 868, 322 )
+transitions = [ "FirstAttack", "SecondAttack", SubResource( 27 ), "SecondAttack", "ThirdAttack", SubResource( 28 ), "ThirdAttack", "Idle", SubResource( 29 ) ]
+start_node = "FirstAttack"
+end_node = "Idle"
+graph_offset = Vector2( 69, 284.513 )
+
+[sub_resource type="AnimationNodeBlend3" id=31]
+
+[sub_resource type="AnimationNodeTransition" id=32]
+input_count = 4
+xfade_time = 0.1
+input_0/name = "idle"
+input_0/auto_advance = false
+input_1/name = "walking"
+input_1/auto_advance = false
+input_2/name = "on_air"
+input_2/auto_advance = false
+input_3/name = "Attacking"
+input_3/auto_advance = false
+
+[sub_resource type="AnimationNodeBlend2" id=33]
+
+[sub_resource type="AnimationNodeTimeScale" id=34]
+
+[sub_resource type="AnimationNodeBlendTree" id=35]
+graph_offset = Vector2( -182, 611.25 )
+"nodes/Attached to Wall Animation/node" = SubResource( 16 )
+"nodes/Attached to Wall Animation/position" = Vector2( -320, 600 )
+nodes/BrakingAnimation/node = SubResource( 17 )
+nodes/BrakingAnimation/position = Vector2( -220, 240 )
+nodes/FallingAnimation/node = SubResource( 18 )
+nodes/FallingAnimation/position = Vector2( -160, 380 )
+nodes/IdleAnimation/node = SubResource( 19 )
+nodes/IdleAnimation/position = Vector2( 140, -60 )
+nodes/RisingAnimation/node = SubResource( 20 )
+nodes/RisingAnimation/position = Vector2( -160, 760 )
+nodes/TimeScale/node = SubResource( 21 )
+nodes/TimeScale/position = Vector2( 368, 654 )
+nodes/WalkingAnimation/node = SubResource( 22 )
+nodes/WalkingAnimation/position = Vector2( -360, 100 )
+nodes/attack_state_machine/node = SubResource( 30 )
+nodes/attack_state_machine/position = Vector2( 120, 640 )
+nodes/in_air_blend/node = SubResource( 31 )
+nodes/in_air_blend/position = Vector2( 140, 440 )
+nodes/output/position = Vector2( 640, 180 )
+nodes/transition/node = SubResource( 32 )
+nodes/transition/position = Vector2( 420, 180 )
+nodes/walk_and_brake_blend/node = SubResource( 33 )
+nodes/walk_and_brake_blend/position = Vector2( 80, 180 )
+nodes/walking_speed/node = SubResource( 34 )
+nodes/walking_speed/position = Vector2( -160, 80 )
+node_connections = [ "output", 0, "transition", "transition", 0, "IdleAnimation", "transition", 1, "walk_and_brake_blend", "transition", 2, "in_air_blend", "transition", 3, "TimeScale", "in_air_blend", 0, "FallingAnimation", "in_air_blend", 1, "Attached to Wall Animation", "in_air_blend", 2, "RisingAnimation", "walk_and_brake_blend", 0, "walking_speed", "walk_and_brake_blend", 1, "BrakingAnimation", "TimeScale", 0, "attack_state_machine", "walking_speed", 0, "WalkingAnimation" ]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=36]
+
+[node name="Player" type="KinematicBody"]
+script = ExtResource( 1 )
+camera_pivot = NodePath("../Player/CameraPivot")
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.176024, 0 )
+shape = SubResource( 1 )
+
+[node name="CameraPivot" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52678, 0 )
+
+[node name="SpringArm" type="SpringArm" parent="CameraPivot"]
+spring_length = 10.0
+
+[node name="Camera" type="Camera" parent="CameraPivot/SpringArm"]
+
+[node name="Mesh" type="Spatial" parent="."]
+
+[node name="Body" type="MeshInstance" parent="Mesh"]
+transform = Transform( 0.934955, 0.354768, -1.55074e-08, 0, -4.37114e-08, -1, -0.354768, 0.934955, -4.08682e-08, 0, 0.000347649, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Eyes" type="CSGMesh" parent="Mesh/Body"]
+transform = Transform( 0.6, 0, 0, 0, 0.1, 0, 0, 0, 0.15, 0, -0.890301, -0.358258 )
+mesh = SubResource( 3 )
+
+[node name="Back" type="CSGMesh" parent="Mesh/Body"]
+transform = Transform( 0.2, 0, 0, 0, 0.1, 0, 0, 0, 0.7, 0, 0.94985, -4.15193e-08 )
+mesh = SubResource( 4 )
+
+[node name="RightFoot" type="CSGMesh" parent="Mesh"]
+transform = Transform( 0.840332, 0, 0.542072, 0, 1, 0, -0.542072, 0, 0.840332, 0.77, -1.645, -0.523682 )
+mesh = SubResource( 5 )
+
+[node name="LeftFoot" type="CSGMesh" parent="Mesh"]
+transform = Transform( 0.663192, 0, 0.748449, 0, 1, 0, -0.748449, 0, 0.663192, -0.512079, -1.619, 0.331414 )
+mesh = SubResource( 5 )
+
+[node name="RightHand" type="CSGMesh" parent="Mesh"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.414, -0.4, 0 )
+mesh = SubResource( 6 )
+
+[node name="LeftHand" type="CSGMesh" parent="Mesh"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.15823, -0.0454707, -0.478838 )
+mesh = SubResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Attached to Wall Falling" = SubResource( 7 )
+anims/Braking = SubResource( 8 )
+anims/Falling = SubResource( 9 )
+anims/FirstAttack = SubResource( 10 )
+anims/Idle = SubResource( 11 )
+anims/Rising = SubResource( 12 )
+anims/SecondAttack = SubResource( 13 )
+anims/ThirdAttack = SubResource( 14 )
+anims/Walking = SubResource( 15 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 35 )
+anim_player = NodePath("../AnimationPlayer")
+parameters/TimeScale/scale = 2.0
+parameters/attack_state_machine/playback = SubResource( 36 )
+parameters/in_air_blend/blend_amount = 0.0
+parameters/transition/current = 2
+parameters/walk_and_brake_blend/blend_amount = 0.0
+parameters/walking_speed/scale = 1.0
+script = ExtResource( 5 )

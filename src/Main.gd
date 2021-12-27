@@ -8,6 +8,7 @@ var big_expl = preload("res://BigExplosion.tscn")
 var time : float
 var game_over = false
 var players = {};
+var phase : int = 1
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://DebuggingSphere.tscn" type="PackedScene" id=2]
 [ext_resource path="res://RecordPosition.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/sfx/deathscream1.wav" type="AudioStream" id=4]
-[ext_resource path="res://Human/human_yellow.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.2
@@ -15,20 +14,8 @@ height = 0.6
 ]]
 script = ExtResource( 1 )
 
-[node name="HumanForTesting" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 0, 0, 0 )
-visible = false
-
 [node name="Head" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59345, 0 )
-
-[node name="SpotLight" type="SpotLight" parent="Head"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.307134, 0 )
-visible = false
-shadow_enabled = true
-shadow_color = Color( 1, 0, 0, 1 )
-spot_range = 20.0
-spot_angle = 40.0
 
 [node name="FirstPersonCamera" type="Camera" parent="Head"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.360422, 0 )

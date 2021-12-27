@@ -89,12 +89,13 @@ func update_camera():
 	
 	if alive:
 		if first_person_mode:
-#			if head:
 			var rot = head.rotation_degrees.y
-			$Human.rotation_degrees.y = rot + 180
+			if $Human:
+				$Human.rotation_degrees.y = rot + 180
 		else:
 			#$MeshSpatial.rotation_degrees.y = third_person_camera.rotation_degrees.y
-			$Human.rotation_degrees.y = third_person_camera.rotation_degrees.y + 180
+			if $Human:
+				$Human.rotation_degrees.y = third_person_camera.rotation_degrees.y + 180
 	pass
 
 
