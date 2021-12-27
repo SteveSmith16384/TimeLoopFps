@@ -33,13 +33,19 @@ _global_script_classes=[ {
 "class": "Main",
 "language": "GDScript",
 "path": "res://Main.gd"
+}, {
+"base": "KinematicBody",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Player/Player.gd"
 } ]
 _global_script_class_icons={
 "Bomb": "",
 "Bullet": "",
 "KinematicCharacter": "",
 "KinematicCharacterWithExportedAttributes": "",
-"Main": ""
+"Main": "",
+"Player": ""
 }
 
 [application]

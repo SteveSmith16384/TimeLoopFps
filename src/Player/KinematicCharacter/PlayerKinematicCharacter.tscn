@@ -1,6 +1,6 @@
 [gd_scene load_steps=39 format=2]
 
-[ext_resource path="res://Player/KinematicCharacter/kinematic_character_with_exported_attributes.gd" type="Script" id=1]
+[ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/KinematicCharacter/character_animation_tree.gd" type="Script" id=5]
 
 [sub_resource type="CapsuleShape" id=1]
@@ -1850,3 +1850,5 @@ parameters/transition/current = 2
 parameters/walk_and_brake_blend/blend_amount = 0.0
 parameters/walking_speed/scale = 1.0
 script = ExtResource( 5 )
+
+[node name="Camera" type="Camera" parent="."]

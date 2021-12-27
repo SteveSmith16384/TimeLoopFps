@@ -57,9 +57,9 @@ func _ready():
 
 	current_ammo = clip_size
 
-	head = $Head
-	first_person_camera = $Head/FirstPersonCamera
-	third_person_camera = $ThirdPersonCamera
+	head = $CameraPivot # $Head
+	first_person_camera = $Camera # $Head/FirstPersonCamera
+	third_person_camera = $CameraPivot/SpringArm/Camera # $ThirdPersonCamera
 
 	update_camera()
 	pass
@@ -133,7 +133,7 @@ func _physics_process(delta):
 			#$AudioStreamPlayer_Jump.play()
 			grav_offset += jump_power
 	
-	if player_id > 0:
+	if player_id != null and player_id > 0:
 		if Input.is_action_pressed("turn_left" + str(player_id)):
 			head.rotate_y(deg2rad(4))
 			yaw_y = rad2deg(head.rotation.y)
@@ -189,9 +189,9 @@ func _physics_process(delta):
 		pass
 	
 	if play_footstep:
-		$Human.anim("Run")
+		$AnimationPlayer.play("Walking")
 	else:
-		$Human.anim("Idle")
+		$AnimationPlayer.play("Idle")
 	
 	if Input.is_action_pressed("primary_fire" + str(player_id)) and can_laser_fire:
 		if Globals.USE_BOMBS:
@@ -266,7 +266,7 @@ func set_first_person_mode(b):
 	first_person_mode = b
 
 	#find_node("MeshSpatial").visible = !first_person_mode
-	$Human.visible = !first_person_mode
+	visible = !first_person_mode
 	#main.set_first_person(first_person_mode)
 
 	self.first_person_camera.current = first_person_mode
@@ -306,11 +306,11 @@ func _on_RestartTimer_timeout():
 
 
 func start_recording():
-	$RecordPosition.start_recording()
+#	$RecordPosition.start_recording()
 	pass
 
 
 func start_playback():
-	$RecordPosition.start_playback()
+#	$RecordPosition.start_playback()
 	pass
 
