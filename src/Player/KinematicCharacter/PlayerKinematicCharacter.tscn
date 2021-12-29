@@ -1790,13 +1790,11 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.176024, 0 )
 shape = SubResource( 1 )
 
-[node name="CameraPivot" type="Spatial" parent="."]
+[node name="Rotation_Helper" type="Spatial" parent="."]
+
+[node name="Camera" type="Camera" parent="Rotation_Helper"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52678, 0 )
-
-[node name="SpringArm" type="SpringArm" parent="CameraPivot"]
-spring_length = 10.0
-
-[node name="Camera" type="Camera" parent="CameraPivot/SpringArm"]
+current = true
 
 [node name="Mesh" type="Spatial" parent="."]
 
@@ -1851,4 +1849,5 @@ parameters/walk_and_brake_blend/blend_amount = 0.0
 parameters/walking_speed/scale = 1.0
 script = ExtResource( 5 )
 
-[node name="Camera" type="Camera" parent="."]
+[node name="ThirdPersonCamera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.36342, 5.6034 )

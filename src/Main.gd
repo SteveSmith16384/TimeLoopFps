@@ -52,15 +52,15 @@ func _ready():
 		num += 1
 		pass
 		
-	start_recording()
+#	start_recording()
 	$Sounds/AudioAmbience.play()
 	pass
 	
 
 func start_recording():
-	for player_id in Globals.player_nums:
-		var player = players[player_id]#self.get_node("Player_" + str(player_id))
-		player.start_recording()
+#	for player_id in Globals.player_nums:
+#		var player = players[player_id]#self.get_node("Player_" + str(player_id))
+#		player.start_recording()
 	pass
 	
 	
@@ -115,7 +115,7 @@ func _on_HudTimer_timeout():
 
 
 func _on_Timer_Rewind_timeout():
-	start_playback()
+#	start_playback()
 	pass
 
 
