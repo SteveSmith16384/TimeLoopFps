@@ -19,16 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Bullet.gd"
 }, {
-"base": "KinematicBody",
-"class": "KinematicCharacter",
-"language": "GDScript",
-"path": "res://Player/KinematicCharacter/kinematic_character.gd"
-}, {
-"base": "KinematicCharacter",
-"class": "KinematicCharacterWithExportedAttributes",
-"language": "GDScript",
-"path": "res://Player/KinematicCharacter/kinematic_character_with_exported_attributes.gd"
-}, {
 "base": "Spatial",
 "class": "Main",
 "language": "GDScript",
@@ -42,8 +32,6 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Bomb": "",
 "Bullet": "",
-"KinematicCharacter": "",
-"KinematicCharacterWithExportedAttributes": "",
 "Main": "",
 "Player": ""
 }

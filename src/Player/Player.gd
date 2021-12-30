@@ -44,7 +44,7 @@ func process_input(delta):
 		input_movement_vector.y += 1
 	if Input.is_action_pressed("move_backward" + str(player_id)):
 		input_movement_vector.y -= 1
-	if Input.is_action_pressed("move_left0" + str(player_id)):
+	if Input.is_action_pressed("move_left" + str(player_id)):
 		input_movement_vector.x -= 1
 	if Input.is_action_pressed("move_right" + str(player_id)):
 		input_movement_vector.x += 1

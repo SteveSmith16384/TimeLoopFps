@@ -46,7 +46,6 @@ func _ready():
 		
 		render.viewport.add_child(player.hud)
 
-#		player.get_node("Human").scale = Vector3(0.17, 0.17, 0.17)
 		players[player_id] = player
 		
 		num += 1
