@@ -1,21 +1,21 @@
 class_name Main
 extends Spatial
 
-var tiny_expl = preload("res://TinyExplosion.tscn")
-var small_expl = preload("res://SmallExplosion.tscn")
-var big_expl = preload("res://BigExplosion.tscn")
+const tiny_expl = preload("res://TinyExplosion.tscn")
+const small_expl = preload("res://SmallExplosion.tscn")
+const big_expl = preload("res://BigExplosion.tscn")
+const player_class = preload("res://Player/KinematicCharacter/PlayerKinematicCharacter.tscn")
 
 var time : float
 var game_over = false
 var players = {};
-var phase : int = 1
+var phase_num : int = 1
+
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 	$HUD.update_time_label(time)
-	
-	var player_class = preload("res://Player/KinematicCharacter/PlayerKinematicCharacter.tscn")
 
 	# Add a player. Possible values 0 - 3. Returns a TextureRect with some extra goodies attached
 	var num = 0
@@ -24,6 +24,7 @@ func _ready():
 		
 		var player = player_class.instance()
 		player.player_id = player_id
+		player.set_as_player()
 		player.translation = get_node("StartPositions/StartPosition" + str(player_id)).translation
 		
 		# Set player colours
@@ -51,18 +52,11 @@ func _ready():
 		num += 1
 		pass
 		
-#	start_recording()
+	start_recording()
 	$Sounds/AudioAmbience.play()
 	pass
 	
 
-func start_recording():
-#	for player_id in Globals.player_nums:
-#		var player = players[player_id]#self.get_node("Player_" + str(player_id))
-#		player.start_recording()
-	pass
-	
-	
 func _input(event):
 	if players.has(0):
 		players[0]._input(event)
@@ -113,15 +107,29 @@ func _on_HudTimer_timeout():
 	pass
 
 
+func start_recording():
+	var recs : Array = Globals.recorders
+	for recorder in recs:
+		if recorder != null:
+			recorder.start_recording()
+	pass
+	
+	
 func _on_Timer_Rewind_timeout():
-#	start_playback()
+	start_playback()
 	pass
 
 
 func start_playback():
 	for player_id in Globals.player_nums:
-		var player = players[player_id]#self.get_node("Player_" + str(player_id))
-		player.start_playback()
+		var player = players[player_id]
+		player.translation = get_node("StartPositions/StartPosition" + str(player_id)).translation
+
+		# Create drones
+		var drone = player_class.instance()
+		drone.player_id = player_id
+		var action_data = player.get_action_data()
+		drone.set_as_drone(action_data)
+		drone.translation = get_node("StartPositions/StartPosition" + str(player_id)).translation
 	pass
-	
 	
