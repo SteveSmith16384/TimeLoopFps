@@ -10,7 +10,7 @@ func _process(delta):
 		get_tree().change_scene("res://IntroScene.tscn")
 		
 	for i in range(0,4):
-		if Globals.FORCE_MAX_PLAYERS or Input.is_action_just_pressed("primary_fire" + str(i)) or Input.is_action_just_pressed("jump" + str(i)):
+		if (Globals.FORCE_MAX_PLAYERS and i <= 1) or Input.is_action_just_pressed("primary_fire" + str(i)) or Input.is_action_just_pressed("jump" + str(i)):
 			if Globals.player_nums.has(i) == false:
 				#append_text("Player " + str(i) + " added")
 				Globals.player_nums.push_back(i)

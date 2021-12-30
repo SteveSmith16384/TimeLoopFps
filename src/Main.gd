@@ -14,7 +14,8 @@ var phase_num : int = 1
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+	Globals.recorders = []
+	
 	$HUD.update_time_label(time)
 
 	# Add a player. Possible values 0 - 3. Returns a TextureRect with some extra goodies attached
@@ -52,7 +53,7 @@ func _ready():
 		num += 1
 		pass
 		
-	start_recording()
+	start_recording_and_playback()
 	$Sounds/AudioAmbience.play()
 	pass
 	
@@ -107,21 +108,22 @@ func _on_HudTimer_timeout():
 	pass
 
 
-func start_recording():
+func start_recording_and_playback():
 	var recs : Array = Globals.recorders
 	for recorder in recs:
 		if recorder != null:
-			recorder.start_recording()
+			recorder.start()
 	pass
 	
 	
 func _on_Timer_Rewind_timeout():
-	start_playback()
+	start_next_phase()
 	pass
 
 
-func start_playback():
+func start_next_phase():
 	for player_id in Globals.player_nums:
+		# Move players to start
 		var player = players[player_id]
 		player.translation = get_node("StartPositions/StartPosition" + str(player_id)).translation
 
@@ -131,5 +133,8 @@ func start_playback():
 		var action_data = player.get_action_data()
 		drone.set_as_drone(action_data)
 		drone.translation = get_node("StartPositions/StartPosition" + str(player_id)).translation
+		self.add_child(drone)
+		
+	start_recording_and_playback()
 	pass
 	

@@ -9,7 +9,7 @@ func _ready():
 	pass
 	
 	
-func start_playback():
+func start():
 	start_time = OS.get_ticks_msec()
 	pass
 	
@@ -23,3 +23,13 @@ func _on_Timer_Playback_timeout():
 			owner.translation = peek.pos
 			owner.rotation = peek.rot
 	pass
+
+
+#func _on_PlaybackActions_ready():
+#	Globals.recorders.push_back(self)
+#	pass # Replace with function body.
+
+
+#func _on_PlaybackActions_tree_entered():
+#	Globals.recorders.push_back(self)
+#	pass # Replace with function body.

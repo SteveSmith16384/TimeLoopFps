@@ -17,6 +17,9 @@ var rotation_helper
 
 var MOUSE_SENSITIVITY = .2#0.1
 
+var rec_act_clazz = preload("res://RecordActions.tscn")
+var playback_clazz = load("res://PlaybackActions.tscn")
+
 var player_id : int
 var drone = false
 var hud 
@@ -29,9 +32,7 @@ func _ready():
 
 func set_as_player():
 	drone = false
-	#$PlaybackActions.queue_free()
-	var clazz = preload("res://RecordActions.tscn")
-	var i = clazz.instance()
+	var i = rec_act_clazz.instance()
 	self.add_child(i)
 	i.set_owner(self)
 	pass
@@ -39,12 +40,11 @@ func set_as_player():
 	
 func set_as_drone(data):
 	drone = true
-#	$RecordActions.queue_free()
-	var clazz = preload("res://PlaybackActions.tscn")
-	var i = clazz.instance()
+	var i = playback_clazz.instance()
 	self.add_child(i)
 	i.set_owner(self)
 	i.actions = data
+	i._ready()
 	pass
 
 

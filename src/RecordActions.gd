@@ -8,7 +8,8 @@ func _ready():
 	pass
 	
 	
-func start_recording():
+func start():
+	actions = []
 	start_time = OS.get_ticks_msec()
 	$Timer_StorePos.start()
 	pass
