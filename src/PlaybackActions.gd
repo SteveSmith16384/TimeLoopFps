@@ -11,11 +11,16 @@ func _ready():
 	
 func start():
 	start_time = OS.get_ticks_msec()
+	$Timer_Playback.start()
 	pass
 	
 	
 func _on_Timer_Playback_timeout():
 	var time = OS.get_ticks_msec() - start_time
+	if pointer >= actions.size():
+		$Timer_Playback.stop()
+		return
+		
 	var peek = actions[pointer]
 	if peek:
 		if peek.time <= time:
@@ -24,12 +29,3 @@ func _on_Timer_Playback_timeout():
 			owner.rotation = peek.rot
 	pass
 
-
-#func _on_PlaybackActions_ready():
-#	Globals.recorders.push_back(self)
-#	pass # Replace with function body.
-
-
-#func _on_PlaybackActions_tree_entered():
-#	Globals.recorders.push_back(self)
-#	pass # Replace with function body.

@@ -6,6 +6,7 @@
 script = ExtResource( 1 )
 
 [node name="Timer_Playback" type="Timer" parent="."]
+wait_time = 0.05
 
 [connection signal="ready" from="." to="." method="_on_PlaybackActions_ready"]
 [connection signal="timeout" from="Timer_Playback" to="." method="_on_Timer_Playback_timeout"]

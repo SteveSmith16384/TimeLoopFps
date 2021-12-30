@@ -16,8 +16,6 @@ func start():
 	
 	
 func _on_Timer_StorePos_timeout():
-	var delme = self.owner
-	
 	var data = {
 		pos = self.owner.translation,
 		time = OS.get_ticks_msec() - start_time,

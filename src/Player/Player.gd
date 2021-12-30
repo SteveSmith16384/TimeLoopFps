@@ -44,7 +44,7 @@ func set_as_drone(data):
 	self.add_child(i)
 	i.set_owner(self)
 	i.actions = data
-	i._ready()
+	#i._ready()
 	pass
 
 
