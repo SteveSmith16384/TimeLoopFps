@@ -18,7 +18,8 @@ var rotation_helper
 var MOUSE_SENSITIVITY = .2#0.1
 
 var rec_act_clazz = preload("res://RecordActions.tscn")
-var playback_clazz = load("res://PlaybackActions.tscn")
+var playback_clazz = preload("res://PlaybackActions.tscn")
+var bullet_clazz = preload("res://Bullet.tscn")
 
 var player_id : int
 var drone = false
@@ -56,6 +57,7 @@ func _physics_process(delta):
 		
 	process_input(delta)
 	process_movement(delta)
+	check_shooting(delta)
 	pass
 
 
@@ -69,11 +71,11 @@ func process_input(delta):
 
 	if Input.is_action_pressed("move_forward" + str(player_id)):
 		input_movement_vector.y += 1
-	if Input.is_action_pressed("move_backward" + str(player_id)):
+	elif Input.is_action_pressed("move_backward" + str(player_id)):
 		input_movement_vector.y -= 1
 	if Input.is_action_pressed("move_left" + str(player_id)):
 		input_movement_vector.x -= 1
-	if Input.is_action_pressed("move_right" + str(player_id)):
+	elif Input.is_action_pressed("move_right" + str(player_id)):
 		input_movement_vector.x += 1
 
 	input_movement_vector = input_movement_vector.normalized()
@@ -145,6 +147,16 @@ func _input(event):
 	pass
 
 
+func check_shooting(delta):
+	if Input.is_action_just_pressed("primary_fire" + str(player_id)):
+		var bullet = bullet_clazz.instance()
+		var scene_root = get_tree().root.get_children()[0]
+		scene_root.add_child(bullet)
+		bullet.shooter = self
+		bullet.global_transform = self.global_transform
+	pass
+	
+	
 func get_action_data():
 	return $RecordActions.actions
 

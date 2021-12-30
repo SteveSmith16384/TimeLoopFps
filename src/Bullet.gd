@@ -1,34 +1,39 @@
 class_name Bullet 
-extends KinematicBody
+extends Area
 
-const SPEED = 20
+var BULLET_SPEED = 40#70
+var BULLET_DAMAGE = 15
 
-var main #: Main
+const KILL_TIMER = 4
+var timer = 0
+var hit_something = false
 var shooter
 
 func _ready():
-	main = get_tree().get_root().get_node("Main")
+#	main = get_tree().get_root().get_node("Main")
 	pass
 
 
 func _process(delta):
-	var dir = global_transform.basis.z * delta * -1 * SPEED
-	var col : KinematicCollision = move_and_collide(dir)
-	if col:
-		if col.collider != shooter:
-			if col.collider.has_method("hit_by_bullet"):
-				col.collider.hit_by_bullet()
-				main.small_explosion(col.collider)
-				if "SCORE" in col.collider:
-					main.inc_score(col.collider.SCORE)
-				self.queue_free()
-			else:
-				main.play_clang()
-				main.tiny_explosion(self)
-			queue_free()
+	var forward_dir = global_transform.basis.z.normalized()
+	global_translate(forward_dir * BULLET_SPEED * delta * -1)
+
+	timer += delta
+	if timer >= KILL_TIMER:
+		queue_free()
+
 	pass
 
 
-func _on_Timer_timeout():
+
+func _on_Bullet_body_entered(body):
+	if body == shooter:
+		return
+		
+	if hit_something == false:
+		if body.has_method("bullet_hit"):
+			body.bullet_hit(BULLET_DAMAGE, global_transform)
+
+	hit_something = true
 	queue_free()
 	pass
