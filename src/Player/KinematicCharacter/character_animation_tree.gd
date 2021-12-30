@@ -9,6 +9,10 @@ var _request_attack:int = 0
 
 var current_attack: = 0 setget , get_current_attack
 
+func _ready():
+#	active = true
+	pass
+	
 func get_current_attack() -> int:
 	if is_attacking():
 		return current_attack
@@ -20,9 +24,6 @@ func request_attack():
 
 func is_attacking() -> bool:
 	return get("parameters/transition/current") == 3
-
-func _ready():
-	active = true
 
 func _process(delta):
 	if is_on_floor:

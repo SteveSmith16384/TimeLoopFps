@@ -3,8 +3,8 @@ extends KinematicBody
 
 const GRAVITY = -24.8
 var vel = Vector3()
-const MAX_SPEED = 20
-const JUMP_SPEED = 18
+const MAX_SPEED = 10#20
+const JUMP_SPEED = 14#18
 const ACCEL = 4.5
 
 var dir = Vector3()
@@ -15,7 +15,7 @@ const MAX_SLOPE_ANGLE = 40
 var camera
 var rotation_helper
 
-var MOUSE_SENSITIVITY = 0.1
+var MOUSE_SENSITIVITY = .2#0.1
 
 var player_id : int
 var hud 
@@ -26,10 +26,14 @@ func _ready():
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
+#	$AnimationPlayer.play("Walking")
+	pass
+	
 
 func _physics_process(delta):
 	process_input(delta)
 	process_movement(delta)
+	pass
 
 
 func process_input(delta):
@@ -71,6 +75,7 @@ func process_input(delta):
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	# ----------------------------------
+	pass
 
 
 func process_movement(delta):
@@ -95,6 +100,12 @@ func process_movement(delta):
 	vel.x = hvel.x
 	vel.z = hvel.z
 	vel = move_and_slide(vel, Vector3(0, 1, 0), 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
+	
+	if vel.length() > 0:
+		$AnimationPlayer.play("Walking")
+	else:
+		$AnimationPlayer.play("Idle")
+	pass
 
 
 func _input(event):
@@ -105,3 +116,4 @@ func _input(event):
 		var camera_rot = rotation_helper.rotation_degrees
 		camera_rot.x = clamp(camera_rot.x, -70, 70)
 		rotation_helper.rotation_degrees = camera_rot
+	pass

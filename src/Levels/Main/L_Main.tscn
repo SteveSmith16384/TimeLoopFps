@@ -1,13 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Levels/Main/Geometry/Floor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/Main/Environment.tres" type="Environment" id=3]
-[ext_resource path="res://Levels/Main/L_Main.gd" type="Script" id=4]
 [ext_resource path="res://Levels/Main/Geometry/Wall.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Levels/Main/Geometry/Cube.tscn" type="PackedScene" id=6]
 
 [node name="L_Main" type="Spatial"]
-script = ExtResource( 4 )
 
 [node name="ArenaGeometry" type="Spatial" parent="."]
 

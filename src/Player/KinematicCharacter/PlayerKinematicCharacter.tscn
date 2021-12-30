@@ -1,7 +1,6 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Player/KinematicCharacter/character_animation_tree.gd" type="Script" id=5]
 
 [sub_resource type="CapsuleShape" id=1]
 height = 1.5
@@ -1793,13 +1792,13 @@ shape = SubResource( 1 )
 [node name="Rotation_Helper" type="Spatial" parent="."]
 
 [node name="Camera" type="Camera" parent="Rotation_Helper"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52678, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52678, -0.532612 )
 current = true
 
 [node name="Mesh" type="Spatial" parent="."]
 
 [node name="Body" type="MeshInstance" parent="Mesh"]
-transform = Transform( 0.999994, -0.000212589, 0.0034772, 0.0034772, 0.12182, -0.992546, -0.000212587, 0.992552, 0.12182, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.00536802, 0 )
 mesh = SubResource( 2 )
 material/0 = null
 
@@ -1812,19 +1811,19 @@ transform = Transform( 0.2, 0, 0, 0, 0.1, 0, 0, 0, 0.7, 0, 0.94985, -4.15193e-08
 mesh = SubResource( 4 )
 
 [node name="RightFoot" type="CSGMesh" parent="Mesh"]
-transform = Transform( 1, 0, 0, 0, 0.998956, -0.0456807, 0, 0.0456807, 0.998956, 0.77, -1.638, -0.00916429 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.77, -1.645, 0 )
 mesh = SubResource( 5 )
 
 [node name="LeftFoot" type="CSGMesh" parent="Mesh"]
-transform = Transform( 1, 0, 0, 0, 0.990618, -0.136661, 0, 0.136661, 0.990618, -0.77, -1.50251, 0.0090833 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.77, -1.619, 0 )
 mesh = SubResource( 5 )
 
 [node name="RightHand" type="CSGMesh" parent="Mesh"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.414, -0.200178, 0.00916429 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.414, -0.4, 0 )
 mesh = SubResource( 6 )
 
 [node name="LeftHand" type="CSGMesh" parent="Mesh"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.414, -0.499933, -0.00916429 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.414, -0.4, 0 )
 mesh = SubResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -1847,7 +1846,6 @@ parameters/in_air_blend/blend_amount = 0.0
 parameters/transition/current = 2
 parameters/walk_and_brake_blend/blend_amount = 0.0
 parameters/walking_speed/scale = 1.0
-script = ExtResource( 5 )
 
 [node name="ThirdPersonCamera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.36342, 5.6034 )
