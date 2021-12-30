@@ -11,6 +11,7 @@ func _ready():
 	
 func start():
 	start_time = OS.get_ticks_msec()
+	pointer = 0
 	$Timer_Playback.start()
 	pass
 	

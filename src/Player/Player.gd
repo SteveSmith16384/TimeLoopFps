@@ -27,6 +27,8 @@ var hud
 func _ready():
 	camera = $Rotation_Helper/Camera
 	rotation_helper = $Rotation_Helper
+	
+	self.look_at(Vector3.ZERO, Vector3.UP)
 	pass
 	
 

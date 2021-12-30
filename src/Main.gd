@@ -109,15 +109,18 @@ func _on_HudTimer_timeout():
 
 
 func start_recording_and_playback():
-	var recs : Array = Globals.recorders
-	for recorder in recs:
-		if recorder != null:
-			recorder.start()
+	for recorder in Globals.recorders:
+#		if recorder != null:
+		recorder.start()
 	pass
 	
 	
 func _on_Timer_Rewind_timeout():
-	start_next_phase()
+	phase_num += 1
+	if phase_num <= 3:
+		start_next_phase()
+	else:
+		$Timer_Rewind.stop()
 	pass
 
 
