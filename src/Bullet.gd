@@ -27,13 +27,19 @@ func _process(delta):
 
 
 func _on_Bullet_body_entered(body):
+	if hit_something:
+		return
+		
 	if body == shooter:
 		return
 		
-	if hit_something == false:
-		if body.has_method("bullet_hit"):
-			body.bullet_hit(BULLET_DAMAGE, global_transform)
+	if body.is_in_group("players"):
+		if body.is_alive():
+			body.bullet_hit(BULLET_DAMAGE)
 
-	hit_something = true
-	queue_free()
+			hit_something = true
+			queue_free()
+	else:
+		hit_something = true
+		queue_free()
 	pass

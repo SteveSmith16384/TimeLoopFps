@@ -19,9 +19,9 @@ func start():
 func _on_Timer_StorePos_timeout():
 	var data = {
 		type = Globals.RecType.Movement,
-		pos = self.owner.translation,
+		pos = self.get_parent().translation,
 		time = OS.get_ticks_msec() - start_time,
-		rot = self.owner.rotation
+		rot = self.get_parent().rotation
 	}
 	actions.push_back(data)
 	pass 

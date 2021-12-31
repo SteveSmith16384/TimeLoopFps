@@ -25,6 +25,7 @@ var player_id : int
 var drone = false
 var hud
 var side : int
+var health = 100
 
 func _ready():
 	camera = $Rotation_Helper/Camera
@@ -158,6 +159,16 @@ func shoot():
 	bullet.shooter = self
 	bullet.global_transform = $Rotation_Helper/Camera.global_transform
 	pass
+	
+
+func bullet_hit(dam):
+	# todo - check if ghosted
+	health -= dam
+	pass
+	
+
+func is_alive():
+	return health > 0
 	
 	
 func get_action_data():

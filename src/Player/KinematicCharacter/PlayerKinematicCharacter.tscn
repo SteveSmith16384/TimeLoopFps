@@ -1782,7 +1782,9 @@ node_connections = [ "output", 0, "transition", "transition", 0, "IdleAnimation"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=36]
 
-[node name="PlayerKinemticCharacter" type="KinematicBody"]
+[node name="PlayerKinematicCharacter" type="KinematicBody" groups=[
+"players",
+]]
 collision_layer = 2
 script = ExtResource( 1 )
 
