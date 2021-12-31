@@ -25,7 +25,7 @@ func _ready():
 		
 		var player = player_class.instance()
 		player.player_id = player_id
-		player.set_as_player()
+		player.set_as_player(player_id)
 		player.translation = get_node("StartPositions/StartPosition" + str(player_id)).translation
 		
 		# Set player colours
@@ -134,7 +134,7 @@ func start_next_phase():
 		var drone = player_class.instance()
 		drone.player_id = player_id
 		var action_data = player.get_action_data()
-		drone.set_as_drone(action_data)
+		drone.set_as_drone(player_id, action_data)
 		drone.translation = get_node("StartPositions/StartPosition" + str(player_id)).translation
 		self.add_child(drone)
 		

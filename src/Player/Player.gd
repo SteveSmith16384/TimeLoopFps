@@ -6,10 +6,10 @@ var vel = Vector3()
 const MAX_SPEED = 10#20
 const JUMP_SPEED = 14#18
 const ACCEL = 4.5
+const DEACCEL= 16
 
 var dir = Vector3()
 
-const DEACCEL= 16
 const MAX_SLOPE_ANGLE = 40
 
 var camera
@@ -17,13 +17,14 @@ var rotation_helper
 
 var MOUSE_SENSITIVITY = .2#0.1
 
-var rec_act_clazz = preload("res://RecordActions.tscn")
-var playback_clazz = preload("res://PlaybackActions.tscn")
-var bullet_clazz = preload("res://Bullet.tscn")
+const rec_act_clazz = preload("res://RecordActions.tscn")
+const playback_clazz = preload("res://PlaybackActions.tscn")
+const bullet_clazz = preload("res://Bullet.tscn")
 
 var player_id : int
 var drone = false
-var hud 
+var hud
+var side : int
 
 func _ready():
 	camera = $Rotation_Helper/Camera
@@ -33,21 +34,24 @@ func _ready():
 	pass
 	
 
-func set_as_player():
+func set_as_player(_side):
 	drone = false
+	self.side = _side
+
 	var i = rec_act_clazz.instance()
 	self.add_child(i)
 	i.set_owner(self)
 	pass
 	
 	
-func set_as_drone(data):
+func set_as_drone(_side, data):
 	drone = true
+	side = _side
+
 	var i = playback_clazz.instance()
 	self.add_child(i)
 	i.set_owner(self)
 	i.actions = data
-	#i._ready()
 	pass
 
 
@@ -62,7 +66,6 @@ func _physics_process(delta):
 
 
 func process_input(delta):
-	# ----------------------------------
 	# Walking
 	dir = Vector3()
 	var cam_xform = camera.get_global_transform()
@@ -90,15 +93,6 @@ func process_input(delta):
 	if is_on_floor():
 		if Input.is_action_just_pressed("jump" + str(player_id)):
 			vel.y = JUMP_SPEED
-	# ----------------------------------
-
-	# ----------------------------------
-	# Capturing/Freeing the cursor
-	if Input.is_action_just_pressed("ui_cancel"):
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	# ----------------------------------
 	pass
 
@@ -153,7 +147,7 @@ func check_shooting(delta):
 		var scene_root = get_tree().root.get_children()[0]
 		scene_root.add_child(bullet)
 		bullet.shooter = self
-		bullet.global_transform = self.global_transform
+		bullet.global_transform = $Rotation_Helper/Camera.global_transform
 	pass
 	
 	

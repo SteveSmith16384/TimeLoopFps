@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ControlPoint.gd" type="Script" id=1]
+
+[sub_resource type="BoxShape" id=1]
+
+[node name="ControlPoint" type="Area"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14536, 0 )
+shape = SubResource( 1 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="."]
+height = 0.306089
+sides = 16
+
+[connection signal="body_entered" from="." to="." method="_on_ControlPoint_body_entered"]
