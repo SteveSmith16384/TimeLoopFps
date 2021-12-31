@@ -28,19 +28,6 @@ func _ready():
 		player.set_as_player(player_id)
 		player.translation = get_node("StartPositions/StartPosition" + str(player_id)).translation
 		
-		# Set player colours
-#		if player_id == 1:
-#		var human_white_class = preload("res://Player/KinematicCharacter/PlayerKinematicCharacter.tscn")
-#		var human_white = human_white_class.instance()
-#			human_white.name = "Human"
-#		player.add_child(human_white)
-#		else:
-#			var human_yellow_class = preload("res://Human/human_yellow.tscn")
-#			var human_yellow = human_yellow_class.instance()
-#			human_yellow.name = "Human"
-#			player.add_child(human_yellow)
-#			pass
-			
 		render.viewport.add_child(player)
 		
 		var hud_class = preload("res://PlayerHUD.tscn")
@@ -121,6 +108,7 @@ func _on_Timer_Rewind_timeout():
 		start_next_phase()
 	else:
 		$Timer_Rewind.stop()
+		# todo - show winner
 	pass
 
 

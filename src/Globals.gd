@@ -10,6 +10,11 @@ const SHOW_FPS = true and !RELEASE_MODE
 
 enum RecType {Movement, Shoot}
 
+const colors = [Color(1.0, 0.0, 0.0, 1.0),
+		  Color(0.0, 1.0, 0.0, 1.0),
+		  Color(1.0, 1.0, 0.0, 1.0),
+		  Color(0.0, 1.0, 1.0, 1.0)]
+
 var player_nums = []
 var recorders = []
 
