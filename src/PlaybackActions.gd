@@ -26,7 +26,10 @@ func _on_Timer_Playback_timeout():
 	if peek:
 		if peek.time <= time:
 			pointer += 1
-			owner.translation = peek.pos
-			owner.rotation = peek.rot
+			if peek.type == Globals.RecType.Movement:
+				owner.translation = peek.pos
+				owner.rotation = peek.rot
+			elif peek.type == Globals.RecType.Shoot:
+				owner.shoot()
 	pass
 

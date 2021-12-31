@@ -8,6 +8,8 @@ const THIRD_PERSON_MODE = false and !RELEASE_MODE
 const FORCE_MAX_PLAYERS = true and !RELEASE_MODE
 const SHOW_FPS = true and !RELEASE_MODE
 
+enum RecType {Movement, Shoot}
+
 var player_nums = []
 var recorders = []
 

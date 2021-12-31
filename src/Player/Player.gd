@@ -143,11 +143,20 @@ func _input(event):
 
 func check_shooting(delta):
 	if Input.is_action_just_pressed("primary_fire" + str(player_id)):
-		var bullet = bullet_clazz.instance()
-		var scene_root = get_tree().root.get_children()[0]
-		scene_root.add_child(bullet)
-		bullet.shooter = self
-		bullet.global_transform = $Rotation_Helper/Camera.global_transform
+		# todo - check interval
+		var node = find_node("RecordActions")
+		if node != null:
+			node.add_shot()
+		shoot()
+	pass
+	
+
+func shoot():
+	var bullet = bullet_clazz.instance()
+	var scene_root = get_tree().root.get_children()[0]
+	scene_root.add_child(bullet)
+	bullet.shooter = self
+	bullet.global_transform = $Rotation_Helper/Camera.global_transform
 	pass
 	
 	

@@ -1,5 +1,6 @@
 extends Node
 
+
 var actions = []
 var start_time : int
 
@@ -17,6 +18,7 @@ func start():
 	
 func _on_Timer_StorePos_timeout():
 	var data = {
+		type = Globals.RecType.Movement,
 		pos = self.owner.translation,
 		time = OS.get_ticks_msec() - start_time,
 		rot = self.owner.rotation
@@ -24,3 +26,13 @@ func _on_Timer_StorePos_timeout():
 	actions.push_back(data)
 	pass 
 
+
+func add_shot():
+	var data = {
+		type = Globals.RecType.Shoot,
+		time = OS.get_ticks_msec() - start_time,
+	}
+	actions.push_back(data)
+	pass
+	
+	
