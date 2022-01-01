@@ -6,18 +6,19 @@ const small_expl = preload("res://SmallExplosion.tscn")
 const big_expl = preload("res://BigExplosion.tscn")
 const player_class = preload("res://Player/KinematicCharacter/PlayerKinematicCharacter.tscn")
 
-var time : float
+var time : float = Globals.PHASE_DURATION
 var game_over = false
-var players = {};
+var players = {}; # NOT drones
+var drones = [];
 var phase_num : int = 1
 
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$Timer_Rewind.wait_time = Globals.PHASE_DURATION
+	
 	Globals.recorders = []
 	
-	$HUD.update_time_label(time)
-
 	# Add a player. Possible values 0 - 3. Returns a TextureRect with some extra goodies attached
 	var num = 0
 	for player_id in Globals.player_nums:
@@ -40,6 +41,7 @@ func _ready():
 		num += 1
 		pass
 		
+#	start_next_phase()
 	start_recording_and_playback()
 	$Sounds/AudioAmbience.play()
 	pass
@@ -59,7 +61,7 @@ func _process(delta):
 	if game_over:
 		return
 		
-	time += delta
+	time -= delta
 	pass
 
 
@@ -97,7 +99,6 @@ func _on_HudTimer_timeout():
 
 func start_recording_and_playback():
 	for recorder in Globals.recorders:
-#		if recorder != null:
 		recorder.start()
 	pass
 	
@@ -113,11 +114,19 @@ func _on_Timer_Rewind_timeout():
 
 
 func start_next_phase():
+	time = Globals.PHASE_DURATION
+	
+	for d in drones:
+		d.health = Player.START_HEALTH
+		pass
+		
+		
 	for player_id in Globals.player_nums:
 		# Move players to start
 		var player = players[player_id]
 		player.translation = get_node("StartPositions/StartPosition" + str(player_id)).translation
-
+		player.health = Player.START_HEALTH
+		
 		# Create drones
 		var drone = player_class.instance()
 		drone.player_id = player_id
@@ -125,6 +134,7 @@ func start_next_phase():
 		drone.set_as_drone(player_id, action_data)
 		drone.translation = get_node("StartPositions/StartPosition" + str(player_id)).translation
 		self.add_child(drone)
+		drones.push_back(drone)
 		
 	start_recording_and_playback()
 	pass

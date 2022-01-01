@@ -1,6 +1,7 @@
 class_name Player
 extends KinematicBody
 
+const START_HEALTH = 100
 const GRAVITY = -24.8
 var vel = Vector3()
 const MAX_SPEED = 10#20
@@ -25,7 +26,7 @@ var player_id : int
 var drone = false
 var hud
 var side : int
-var health = 100
+var health = 1 # START_HEALTH todo
 
 func _ready():
 	camera = $Rotation_Helper/Camera
@@ -60,11 +61,6 @@ func set_as_drone(_side, data):
 
 
 func set_colour():
-#	var o_mat = $Mesh/Body.mesh.surface_get_material(0)
-#	var mat = $Mesh/Body.mesh.surface_get_material(0).duplicate()
-#	mat.albedo_color = Globals.colors[side]
-#	$Mesh/Body.mesh.surface_set_material(0, mat)
-
 	$Mesh/Body.mesh.surface_get_material(0).albedo_color = Globals.colors[side]
 	pass
 	
@@ -177,6 +173,8 @@ func shoot():
 func bullet_hit(dam):
 	# todo - check if ghosted
 	health -= dam
+	if health <= 0:
+		$Mesh/Body.mesh.surface_get_material(0).albedo_color = Globals.colors[side].darkened(0.7)
 	pass
 	
 

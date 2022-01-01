@@ -8,6 +8,8 @@ const THIRD_PERSON_MODE = false and !RELEASE_MODE
 const FORCE_MAX_PLAYERS = true and !RELEASE_MODE
 const SHOW_FPS = true and !RELEASE_MODE
 
+const PHASE_DURATION = 15 # todo
+
 enum RecType {Movement, Shoot}
 
 const colors = [Color(1.0, 0.0, 0.0, 1.0),
