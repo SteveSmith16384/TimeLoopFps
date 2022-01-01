@@ -11,7 +11,7 @@ func _on_ControlPoint_body_entered(body):
 				side = body.side
 
 				#change colour
-				$CSGCylinder/AlternateColours.active = false
+				$CSGCylinder/AlternateMaterialColours.active = false
 				$CSGCylinder.material.albedo_color = Globals.colors[side];
 			players_inside.push_back(body)
 		pass

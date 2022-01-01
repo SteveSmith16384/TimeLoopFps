@@ -31,14 +31,16 @@ func _ready():
 	camera = $Rotation_Helper/Camera
 	rotation_helper = $Rotation_Helper
 	
-	self.look_at(Vector3.ZERO, Vector3.UP)
+	self.look_at(Vector3.ZERO, Vector3.UP) # Look to middle
+	
 	pass
 	
 
 func set_as_player(_side):
 	drone = false
 	self.side = _side
-
+	set_colour()
+	
 	var i = rec_act_clazz.instance()
 	self.add_child(i)
 	i.set_owner(self)
@@ -48,6 +50,7 @@ func set_as_player(_side):
 func set_as_drone(_side, data):
 	drone = true
 	side = _side
+	set_colour()
 
 	var i = playback_clazz.instance()
 	self.add_child(i)
@@ -56,6 +59,16 @@ func set_as_drone(_side, data):
 	pass
 
 
+func set_colour():
+#	var o_mat = $Mesh/Body.mesh.surface_get_material(0)
+#	var mat = $Mesh/Body.mesh.surface_get_material(0).duplicate()
+#	mat.albedo_color = Globals.colors[side]
+#	$Mesh/Body.mesh.surface_set_material(0, mat)
+
+	$Mesh/Body.mesh.surface_get_material(0).albedo_color = Globals.colors[side]
+	pass
+	
+	
 func _physics_process(delta):
 	if drone:
 		return
