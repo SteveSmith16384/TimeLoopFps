@@ -14,11 +14,14 @@ func start(_mode):
 	mode = _mode
 	if mode == Globals.RecMode.Recording:
 		actions = []
+		$Timer_StorePos.wait_time = 0.05
 	elif mode == Globals.RecMode.Playing:
 		pointer = 0
+		$Timer_StorePos.wait_time = 0.05
 	elif mode == Globals.RecMode.Rewinding:
 		pointer = actions.size()-1
 		end_time = actions[pointer].time
+		$Timer_StorePos.wait_time = 0.005
 		
 	start_time = OS.get_ticks_msec()
 	$Timer_StorePos.start() # todo - adjust interval depending on mode
@@ -42,7 +45,7 @@ func _on_Timer_StorePos_timeout():
 		var peek = actions[pointer]
 		if peek:
 			var time = end_time - (OS.get_ticks_msec() - start_time)
-			if peek.time > time:
+			if peek.time >= time/10:
 				if peek.type == Globals.RecType.Movement:
 					get_parent().translation = peek.pos
 					get_parent().rotation = peek.rot

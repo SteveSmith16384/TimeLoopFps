@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://ControlPoint.gd" type="Script" id=1]
 [ext_resource path="res://AlternateMaterialColours.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/sfx/172206__fins__teleport.wav" type="AudioStream" id=3]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -20,6 +21,9 @@ sides = 16
 material = SubResource( 2 )
 
 [node name="AlternateMaterialColours" parent="CSGCylinder" instance=ExtResource( 2 )]
+
+[node name="AudioStreamPlayer_Landed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 
 [connection signal="body_entered" from="." to="." method="_on_ControlPoint_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_ControlPoint_body_exited"]

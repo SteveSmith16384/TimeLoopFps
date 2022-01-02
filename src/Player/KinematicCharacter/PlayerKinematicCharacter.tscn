@@ -1,12 +1,19 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://RecordActions.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/sfx/qubodup-PowerDrain.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Assets/sfx/Replenish.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/sfx/launches/flaunch.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/sfx/launches/rlaunch.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/sfx/launches/slimeball.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/sfx/launches/iceball.wav" type="AudioStream" id=8]
 
 [sub_resource type="CapsuleShape" id=1]
 height = 1.5
+
+[sub_resource type="SpatialMaterial" id=38]
+albedo_color = Color( 0.964706, 1, 0, 1 )
 
 [sub_resource type="SpatialMaterial" id=37]
 resource_local_to_scene = true
@@ -1793,9 +1800,6 @@ node_connections = [ "output", 0, "transition", "transition", 0, "IdleAnimation"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=36]
 
-[sub_resource type="SpatialMaterial" id=38]
-albedo_color = Color( 0.964706, 1, 0, 1 )
-
 [node name="PlayerKinematicCharacter" type="KinematicBody" groups=[
 "players",
 ]]
@@ -1816,6 +1820,11 @@ current = true
 
 [node name="Muzzle" type="Position3D" parent="Rotation_Helper/Camera"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.878659, -1.83799 )
+
+[node name="PlayerBulb" type="CSGSphere" parent="Rotation_Helper/Camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.476497, 0.478973 )
+radius = 0.3
+material = SubResource( 38 )
 
 [node name="Mesh" type="Spatial" parent="."]
 
@@ -1872,13 +1881,20 @@ parameters/walking_speed/scale = 1.0
 [node name="ThirdPersonCamera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.36342, 5.6034 )
 
-[node name="PlayerBulb" type="CSGSphere" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00328, 0 )
-radius = 0.3
-material = SubResource( 38 )
-
 [node name="AudioStreamPlayer_Ghosted" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 
 [node name="AudioStreamPlayer_Replenish" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+
+[node name="AudioStreamPlayer_Shoot0" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="AudioStreamPlayer_Shoot1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="AudioStreamPlayer_Shoot2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="AudioStreamPlayer_Shoot3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )

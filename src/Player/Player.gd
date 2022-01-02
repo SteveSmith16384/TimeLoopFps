@@ -4,8 +4,8 @@ extends KinematicBody
 const START_HEALTH = 10
 const GRAVITY = -24.8
 var vel = Vector3()
-const MAX_SPEED = 10#20
-const JUMP_SPEED = 14#18
+const MAX_SPEED = 10
+const JUMP_SPEED = 11
 const ACCEL = 4.5
 const DEACCEL= 16
 
@@ -50,7 +50,7 @@ func set_as_drone(_side, data):
 	drone = true
 	side = _side
 	set_colour()
-	$PlayerBulb.queue_free()
+	$Rotation_Helper/Camera/PlayerBulb.queue_free()
 	$RecordActions.actions = data
 	pass
 
@@ -169,6 +169,8 @@ func shoot():
 	scene_root.add_child(bullet)
 	bullet.side = self.side
 	bullet.global_transform = $Rotation_Helper/Camera/Muzzle.global_transform
+	
+	find_node("AudioStreamPlayer_Shoot" + str(side)).play()
 	pass
 	
 
@@ -195,5 +197,16 @@ func get_action_data():
 func has_finished_rewinding():
 	return $RecordActions.has_finished_rewinding()
 	
+	
 func collected_health():
 	health = START_HEALTH
+
+
+func show_winner():
+	hud.show_winner()
+	
+	
+func show_loser():
+	hud.show_loser()
+	
+	
