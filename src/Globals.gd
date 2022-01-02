@@ -9,6 +9,7 @@ const FORCE_MAX_PLAYERS = true and !RELEASE_MODE
 const SHOW_FPS = true and !RELEASE_MODE
 
 const PHASE_DURATION = 15 # todo
+const SHOT_INTERVAL = 1
 
 enum RecType {Movement, Shoot}
 

@@ -7,7 +7,7 @@ var BULLET_DAMAGE = 15
 const KILL_TIMER = 4
 var timer = 0
 var hit_something = false
-var shooter
+var side
 
 func _ready():
 #	main = get_tree().get_root().get_node("Main")
@@ -30,10 +30,10 @@ func _on_Bullet_body_entered(body):
 	if hit_something:
 		return
 		
-	if body == shooter:
-		return
-		
 	if body.is_in_group("players"):
+		if body.side == side:
+			return
+			
 		if body.is_alive():
 			body.bullet_hit(BULLET_DAMAGE)
 

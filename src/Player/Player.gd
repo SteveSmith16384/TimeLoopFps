@@ -27,6 +27,7 @@ var drone = false
 var hud
 var side : int
 var health = 1 # START_HEALTH todo
+var shot_int : float
 
 func _ready():
 	camera = $Rotation_Helper/Camera
@@ -52,6 +53,7 @@ func set_as_drone(_side, data):
 	drone = true
 	side = _side
 	set_colour()
+	$PlayerBulb.queue_free()
 
 	var i = playback_clazz.instance()
 	self.add_child(i)
@@ -151,9 +153,13 @@ func _input(event):
 	pass
 
 
-func check_shooting(delta):
-	if Input.is_action_just_pressed("primary_fire" + str(player_id)):
-		# todo - check interval
+func check_shooting(delta : float):
+	shot_int -= delta
+	if shot_int > 0:
+		return
+		
+	if Input.is_action_pressed("primary_fire" + str(player_id)):
+		shot_int = Globals.SHOT_INTERVAL
 		var node = find_node("RecordActions")
 		if node != null:
 			node.add_shot()
@@ -165,13 +171,12 @@ func shoot():
 	var bullet = bullet_clazz.instance()
 	var scene_root = get_tree().root.get_children()[0]
 	scene_root.add_child(bullet)
-	bullet.shooter = self
-	bullet.global_transform = $Rotation_Helper/Camera.global_transform
+	bullet.side = self.side
+	bullet.global_transform = $Rotation_Helper/Camera/Muzzle.global_transform
 	pass
 	
 
 func bullet_hit(dam):
-	# todo - check if ghosted
 	health -= dam
 	if health <= 0:
 		$Mesh/Body.mesh.surface_get_material(0).albedo_color = Globals.colors[side].darkened(0.7)
