@@ -1,7 +1,9 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://RecordActions.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/sfx/qubodup-PowerDrain.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Assets/sfx/Replenish.wav" type="AudioStream" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
 height = 1.5
@@ -1874,3 +1876,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.36342, 5.6034 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00328, 0 )
 radius = 0.3
 material = SubResource( 38 )
+
+[node name="AudioStreamPlayer_Ghosted" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="AudioStreamPlayer_Replenish" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )

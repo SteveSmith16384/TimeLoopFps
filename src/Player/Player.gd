@@ -1,7 +1,7 @@
 class_name Player
 extends KinematicBody
 
-const START_HEALTH = 100
+const START_HEALTH = 10
 const GRAVITY = -24.8
 var vel = Vector3()
 const MAX_SPEED = 10#20
@@ -25,7 +25,7 @@ var player_id : int
 var drone = false
 var hud
 var side : int
-var health = 1 # START_HEALTH todo
+var health = START_HEALTH
 var shot_int : float
 var main
 
@@ -173,9 +173,14 @@ func shoot():
 	
 
 func bullet_hit(dam):
+	if health <= 0:
+		return
+
 	health -= dam
 	if health <= 0:
+		health = 0
 		$Mesh/Body.mesh.surface_get_material(0).albedo_color = Globals.colors[side].darkened(0.7)
+		$AudioStreamPlayer_Ghosted.play()
 	pass
 	
 
@@ -189,3 +194,6 @@ func get_action_data():
 
 func has_finished_rewinding():
 	return $RecordActions.has_finished_rewinding()
+	
+func collected_health():
+	health = START_HEALTH

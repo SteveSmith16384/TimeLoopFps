@@ -34,9 +34,7 @@ func _ready():
 		num += 1
 		pass
 		
-#	start_next_phase()
 	start_recording_and_playback()
-	$Sounds/AudioAmbience.play()
 	pass
 	
 
@@ -86,6 +84,8 @@ func start_recording_and_playback():
 		
 	for d in drones:
 		d.find_node("RecordActions").start(Globals.RecMode.Playing)
+		
+	$AudioStreamPlayer_Start.play()
 	pass
 	
 	
@@ -107,6 +107,8 @@ func start_rewinding():
 		
 	for d in drones:
 		d.find_node("RecordActions").start(Globals.RecMode.Rewinding)
+		
+	$AudioStreamPlayer_Rewind.play()
 	pass
 	
 	
