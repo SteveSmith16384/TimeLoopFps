@@ -18,8 +18,7 @@ var rotation_helper
 
 var MOUSE_SENSITIVITY = .2#0.1
 
-const rec_act_clazz = preload("res://RecordActions.tscn")
-const playback_clazz = preload("res://PlaybackActions.tscn")
+#const rec_act_clazz = preload("res://RecordActions.tscn")
 const bullet_clazz = preload("res://Bullet.tscn")
 
 var player_id : int
@@ -28,10 +27,12 @@ var hud
 var side : int
 var health = 1 # START_HEALTH todo
 var shot_int : float
+var main
 
 func _ready():
 	camera = $Rotation_Helper/Camera
 	rotation_helper = $Rotation_Helper
+	main = get_tree().get_root().get_node("Main")
 	
 	self.look_at(Vector3.ZERO, Vector3.UP) # Look to middle
 	
@@ -42,10 +43,6 @@ func set_as_player(_side):
 	drone = false
 	self.side = _side
 	set_colour()
-	
-	var i = rec_act_clazz.instance()
-	self.add_child(i)
-	i.set_owner(self)
 	pass
 	
 	
@@ -54,11 +51,7 @@ func set_as_drone(_side, data):
 	side = _side
 	set_colour()
 	$PlayerBulb.queue_free()
-
-	var i = playback_clazz.instance()
-	self.add_child(i)
-	i.set_owner(self)
-	i.actions = data
+	$RecordActions.actions = data
 	pass
 
 
@@ -69,6 +62,9 @@ func set_colour():
 	
 func _physics_process(delta):
 	if drone:
+		return
+	
+	if main.rewinding:
 		return
 		
 	process_input(delta)
@@ -191,3 +187,5 @@ func get_action_data():
 	return $RecordActions.actions
 
 
+func has_finished_rewinding():
+	return $RecordActions.has_finished_rewinding()

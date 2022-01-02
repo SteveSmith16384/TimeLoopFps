@@ -1,25 +1,18 @@
 class_name Main
 extends Spatial
 
-const tiny_expl = preload("res://TinyExplosion.tscn")
-const small_expl = preload("res://SmallExplosion.tscn")
-const big_expl = preload("res://BigExplosion.tscn")
 const player_class = preload("res://Player/KinematicCharacter/PlayerKinematicCharacter.tscn")
 
 var time : float = Globals.PHASE_DURATION
 var game_over = false
-var players = {}; # NOT drones
+var players = {}; # id/player.  NOT drones
 var drones = [];
 var phase_num : int = 1
-
+var rewinding = false
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	$Timer_Rewind.wait_time = Globals.PHASE_DURATION
 	
-	Globals.recorders = []
-	
-	# Add a player. Possible values 0 - 3. Returns a TextureRect with some extra goodies attached
 	var num = 0
 	for player_id in Globals.player_nums:
 		var render = $Splitscreen.add_player(num)
@@ -48,6 +41,9 @@ func _ready():
 	
 
 func _input(event):
+	if rewinding:
+		return
+		
 	if players.has(0):
 		players[0]._input(event)
 	pass
@@ -60,37 +56,24 @@ func _process(delta):
 		
 	if game_over:
 		return
-		
+	
+	if rewinding:
+		var all_finished = true
+		# Check if finished
+		for p in players.values():
+			if p.has_finished_rewinding() == false:
+				all_finished = false
+				break
+		if all_finished:
+			finished_rewinding()
+
 	time -= delta
+	if time < 0:
+		time = 0
+		if rewinding == false:
+			end_of_phase()
 	pass
 
-
-func collision(mover, hit):
-	if hit.has_method("collided"):
-		hit.collided(mover)
-	pass
-
-
-func tiny_explosion(spatial):
-	var i = tiny_expl.instance()
-	add_child(i)
-	i.translation = spatial.global_transform.origin
-	pass
-	
-	
-func small_explosion(spatial):
-	var i = small_expl.instance()
-	add_child(i)
-	i.translation = spatial.global_transform.origin
-	pass
-	
-	
-func big_explosion(spatial):
-	var i = big_expl.instance()
-	add_child(i)
-	i.translation = spatial.global_transform.origin
-	pass
-	
 
 func _on_HudTimer_timeout():
 	$HUD.update_time_label(time)
@@ -98,22 +81,41 @@ func _on_HudTimer_timeout():
 
 
 func start_recording_and_playback():
-	for recorder in Globals.recorders:
-		recorder.start()
+	for p in players.values():
+		p.find_node("RecordActions").start(Globals.RecMode.Recording)
+		
+	for d in drones:
+		d.find_node("RecordActions").start(Globals.RecMode.Playing)
 	pass
 	
 	
-func _on_Timer_Rewind_timeout():
+func end_of_phase():
 	phase_num += 1
 	if phase_num <= 3:
-		start_next_phase()
+		start_rewinding()
 	else:
-		$Timer_Rewind.stop()
+		game_over = true
 		# todo - show winner
 	pass
 
 
-func start_next_phase():
+func start_rewinding():
+	rewinding = true
+
+	for p in players.values():
+		p.find_node("RecordActions").start(Globals.RecMode.Rewinding)
+		
+	for d in drones:
+		d.find_node("RecordActions").start(Globals.RecMode.Rewinding)
+	pass
+	
+	
+func finished_rewinding():
+	if rewinding == false:
+		return
+	
+	rewinding = false
+	
 	time = Globals.PHASE_DURATION
 	
 	for d in drones:
