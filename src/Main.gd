@@ -23,7 +23,8 @@ func _ready():
 		player.player_id = player_id
 		player.set_as_player(player_id)
 		player.translation = get_node("StartPositions/StartPosition" + str(player_id)).translation
-		
+		player.look_at(Vector3.ZERO, Vector3.UP) # Look to middle
+
 		var hud_class = preload("res://PlayerHUD.tscn")
 		player.hud = hud_class.instance()
 		
@@ -109,6 +110,7 @@ func end_of_phase():
 		start_rewinding()
 	else:
 		game_over = true
+		phase_num = Globals.NUM_PHASES
 		for player in players.values():
 			if player.side == $Arena/ControlPoint.side:
 				player.show_winner()
@@ -155,6 +157,7 @@ func finished_rewinding():
 		# Move players to start
 		var player = players[player_id]
 		player.translation = get_node("StartPositions/StartPosition" + str(player_id)).translation
+		player.look_at(Vector3.ZERO, Vector3.UP) # Look to middle
 		player.health = Player.START_HEALTH
 		
 		# Create drones
@@ -167,6 +170,7 @@ func finished_rewinding():
 		var action_data = player.get_action_data()
 		drone.set_as_drone(player_id, action_data)
 		drone.translation = get_node("StartPositions/StartPosition" + str(player_id)).translation
+		#drone.look_at(Vector3.ZERO, Vector3.UP) # Look to middle
 		self.add_child(drone)
 		drones.push_back(drone)
 		

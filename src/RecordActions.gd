@@ -80,6 +80,6 @@ func add_shot():
 	
 	
 func has_finished_rewinding():
-	return pointer <= 0
+	return pointer <= 1
 	pass
 	
