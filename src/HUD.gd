@@ -9,8 +9,8 @@ func _ready():
 	pass
 
 
-func update_time_label(s : int):
-	$InGame/CenterContainer/TimeLabel.set_text("TIME: " + str(s))
+func update_time_label(time : int, phase_num : int):
+	$InGame/CenterContainer/TimeLabel.set_text("TIME: " + str(time) + " PHASE: " + str(phase_num))
 	pass
 	
 	

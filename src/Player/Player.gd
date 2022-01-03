@@ -17,10 +17,7 @@ var camera
 var rotation_helper
 
 var MOUSE_SENSITIVITY = .2#0.1
-#var JOYPAD_SENSITIVITY = 2
-#const JOYPAD_DEADZONE = 0.15
 
-#const rec_act_clazz = preload("res://RecordActions.tscn")
 const bullet_clazz = preload("res://Bullet.tscn")
 
 var player_id : int
@@ -70,6 +67,10 @@ func _physics_process(delta):
 	
 	if main.rewinding:
 		return
+	
+	if Globals.TURN_BASED:
+		if main.current_player != self:
+			return
 		
 	process_input(delta)
 	process_movement(delta)
@@ -82,17 +83,20 @@ func process_input(delta):
 
 	var joypad_vec = Vector2()
 	if player_id > 0:
-		if Input.is_action_pressed("turn_left" + str(player_id)):
-			rotate_y(deg2rad(4))
-			pass
-		elif Input.is_action_pressed("turn_right" + str(player_id)):
-			rotate_y(deg2rad(-4))
-			pass
+#		if Input.is_action_pressed("turn_left" + str(player_id)):
+#			rotate_y(deg2rad(4))
+#			pass
+#		elif Input.is_action_pressed("turn_right" + str(player_id)):
+#			rotate_y(deg2rad(-4))
+#			pass
+		var x_input = Input.get_action_strength("turn_left" + str(player_id)) - Input.get_action_strength("turn_right" + str(player_id))
+		rotate_y(deg2rad(x_input*2))
+		
 		if Input.is_action_pressed("look_up" + str(player_id)):
-			rotation_helper.rotate_x(deg2rad(2))
+			rotation_helper.rotate_x(deg2rad(1))
 			pass
 		elif Input.is_action_pressed("look_down" + str(player_id)):
-			rotation_helper.rotate_x(deg2rad(-2))
+			rotation_helper.rotate_x(deg2rad(-1))
 			pass
 		pass
 
@@ -157,6 +161,8 @@ func process_movement(delta):
 func _input(event):
 	if drone:
 		return
+	if rotation_helper == null:
+		return # Not ready yet
 		
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotation_helper.rotate_x(-deg2rad(event.relative.y * MOUSE_SENSITIVITY))
