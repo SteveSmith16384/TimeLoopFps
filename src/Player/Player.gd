@@ -17,6 +17,8 @@ var camera
 var rotation_helper
 
 var MOUSE_SENSITIVITY = .2#0.1
+#var JOYPAD_SENSITIVITY = 2
+#const JOYPAD_DEADZONE = 0.15
 
 #const rec_act_clazz = preload("res://RecordActions.tscn")
 const bullet_clazz = preload("res://Bullet.tscn")
@@ -76,10 +78,25 @@ func _physics_process(delta):
 
 
 func process_input(delta):
-	# Walking
 	dir = Vector3()
-	var cam_xform = camera.get_global_transform()
 
+	var joypad_vec = Vector2()
+	if player_id > 0:
+		if Input.is_action_pressed("turn_left" + str(player_id)):
+			rotate_y(deg2rad(4))
+			pass
+		elif Input.is_action_pressed("turn_right" + str(player_id)):
+			rotate_y(deg2rad(-4))
+			pass
+		if Input.is_action_pressed("look_up" + str(player_id)):
+			rotation_helper.rotate_x(deg2rad(2))
+			pass
+		elif Input.is_action_pressed("look_down" + str(player_id)):
+			rotation_helper.rotate_x(deg2rad(-2))
+			pass
+		pass
+
+	var cam_xform = camera.get_global_transform()
 	var input_movement_vector = Vector2()
 
 	if Input.is_action_pressed("move_forward" + str(player_id)):
