@@ -192,7 +192,7 @@ func shoot():
 	var bullet = bullet_clazz.instance()
 	var scene_root = get_tree().root.get_children()[0]
 	scene_root.add_child(bullet)
-	bullet.side = self.side
+	bullet.shooter = self
 	bullet.global_transform = $Rotation_Helper/Camera/Muzzle.global_transform
 	
 	find_node("AudioStreamPlayer_Shoot" + str(side)).play()

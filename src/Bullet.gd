@@ -7,7 +7,7 @@ var BULLET_DAMAGE = 15
 const KILL_TIMER = 4
 var timer = 0
 var hit_something = false
-var side
+var shooter # to check who is a ghost
 
 func _ready():
 #	main = get_tree().get_root().get_node("Main")
@@ -31,11 +31,12 @@ func _on_Bullet_body_entered(body):
 		return
 		
 	if body.is_in_group("players"):
-		if body.side == side:
+		if body.side == shooter.side:
 			return
 			
 		if body.is_alive():
-			body.bullet_hit(BULLET_DAMAGE)
+			if shooter.is_alive():
+				body.bullet_hit(BULLET_DAMAGE)
 
 			hit_something = true
 			queue_free()
