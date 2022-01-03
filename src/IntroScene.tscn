@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/sfx/fight.wav" type="AudioStream" id=1]
 [ext_resource path="res://Assets/time_potatoes_logo.png" type="Texture" id=2]
-[ext_resource path="res://AlternateSpriteColours.tscn" type="PackedScene" id=4]
 [ext_resource path="res://IntroScene.gd" type="Script" id=5]
 [ext_resource path="res://Resources/GUI_Theme.tres" type="Theme" id=7]
 [ext_resource path="res://Resources/GUI_Theme_Font_Large.tres" type="Theme" id=8]
@@ -18,9 +17,6 @@ glow_intensity = 8.0
 glow_strength = 1.07
 glow_bloom = 1.0
 glow_hdr_threshold = 1.95
-
-[sub_resource type="StreamTexture" id=3]
-flags = 4
 
 [node name="IntroScene" type="Spatial"]
 script = ExtResource( 5 )
@@ -42,10 +38,10 @@ autoplay = true
 [node name="Node2D" type="CanvasLayer" parent="."]
 
 [node name="VersionLabel" type="Label" parent="Node2D"]
-margin_left = 872.28
-margin_top = 737.495
-margin_right = 1081.28
-margin_bottom = 785.495
+margin_left = 1688.2
+margin_top = 1001.0
+margin_right = 1897.2
+margin_bottom = 1049.0
 theme = ExtResource( 7 )
 text = "VERSION 0.1"
 __meta__ = {
@@ -71,29 +67,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer2" type="CenterContainer" parent="Node2D"]
-anchor_right = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Sprite" type="Sprite" parent="Node2D/CenterContainer2"]
-visible = false
-position = Vector2( 510.704, 125.757 )
-scale = Vector2( 0.72836, 1 )
-texture = SubResource( 3 )
-
-[node name="AlternateColours" parent="Node2D/CenterContainer2/Sprite" instance=ExtResource( 4 )]
-interval = 0.3
-
-[node name="TextureRect" type="TextureRect" parent="Node2D/CenterContainer2"]
-margin_left = 960.0
-margin_right = 960.0
-texture = SubResource( 3 )
-
-[node name="AlternateColours" parent="Node2D/CenterContainer2/TextureRect" instance=ExtResource( 4 )]
-interval = 0.3
-
 [node name="CenterContainer3" type="CenterContainer" parent="Node2D"]
 anchor_top = 1.0
 anchor_right = 1.0
@@ -104,12 +77,12 @@ __meta__ = {
 }
 
 [node name="CreditsLabel2" type="Label" parent="Node2D/CenterContainer3"]
-margin_left = 444.0
+margin_left = 728.0
 margin_top = 28.0
-margin_right = 1476.0
+margin_right = 1191.0
 margin_bottom = 72.0
 theme = ExtResource( 7 )
-text = "Programmed by Stephen Smith based on the game by Sandy White"
+text = "Programmed by Stephen Smith"
 __meta__ = {
 "_edit_use_anchors_": false
 }

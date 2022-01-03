@@ -9,10 +9,10 @@ const SHOW_FPS = true and !RELEASE_MODE
 # Game Settings
 const NUM_PHASES = 3
 const PHASE_DURATION = 10 # 25 todo
-const TURN_BASED = true
+const TURN_BASED = false
 
 # Fixed settings
-const SHOT_INTERVAL = 1
+const SHOT_INTERVAL : float = 0.5
 
 enum RecType {Movement, Shoot}
 enum RecMode {Recording, Rewinding, Playing}

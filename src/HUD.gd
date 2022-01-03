@@ -3,6 +3,7 @@ extends Node2D
 
 func _ready():
 	$DebugMode.visible = !Globals.RELEASE_MODE
+	$InGame/CenterContainer2/Targetter.visible = Globals.TURN_BASED
 	
 	if Globals.SHOW_FPS:
 		$Timer.start()

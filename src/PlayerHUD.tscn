@@ -1,23 +1,35 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Resources/GUI_Theme_Font_Large.tres" type="Theme" id=1]
 [ext_resource path="res://PlayerHUD.gd" type="Script" id=2]
+[ext_resource path="res://Assets/sprites/crosshair.png" type="Texture" id=3]
 
 [node name="PlayerHUD" type="CanvasLayer"]
 script = ExtResource( 2 )
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Targetter" type="Sprite" parent="CenterContainer"]
+texture = ExtResource( 3 )
+centered = false
+
 [node name="Label" type="Label" parent="CenterContainer"]
-margin_left = 930.0
-margin_top = 514.0
-margin_right = 990.0
-margin_bottom = 565.0
+visible = false
+margin_left = -10.0
+margin_top = -6.0
+margin_right = 50.0
+margin_bottom = 45.0
 theme = ExtResource( 1 )
 text = "Go!"
 align = 1
