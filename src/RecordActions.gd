@@ -21,7 +21,7 @@ func start(_mode):
 	elif mode == Globals.RecMode.Rewinding:
 		pointer = actions.size()-1
 		end_time = actions[pointer].time
-		$Timer_StorePos.wait_time = 0.005
+		$Timer_StorePos.wait_time = 0.001
 		
 	start_time = OS.get_ticks_msec()
 	$Timer_StorePos.start() # todo - adjust interval depending on mode

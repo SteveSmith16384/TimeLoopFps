@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://SelectPlayersScene.gd" type="Script" id=1]
+[ext_resource path="res://Player/KinematicCharacter/PlayerKinematicCharacter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/sfx/172206__fins__teleport.wav" type="AudioStream" id=3]
 [ext_resource path="res://Resources/GUI_Theme_Font_Large.tres" type="Theme" id=4]
 
@@ -28,7 +29,19 @@ __meta__ = {
 }
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0755138, 3.69712, 8.63383 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0755138, 0.514463, 8.63383 )
 
 [node name="AudioStreamPlayer_PlayerJoined" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+
+[node name="Player_0" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.999976, 0, 0.00687657, 0, 1, 0, -0.00687657, 0, -0.999976, 0, 0, 0 )
+
+[node name="Player_1" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.999976, 0, 0.00687657, 0, 1, 0, -0.00687657, 0, -0.999976, -4.29816, 0, 0 )
+
+[node name="Player_2" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.999976, 0, 0.00687657, 0, 1, 0, -0.00687657, 0, -0.999976, -8.27648, 0, 0 )
+
+[node name="Player_3" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.999976, 0, 0.00687657, 0, 1, 0, -0.00687657, 0, -0.999976, 4.39731, 0, 0 )

@@ -95,13 +95,11 @@ func end_of_phase():
 		start_rewinding()
 	else:
 		game_over = true
-		#$HUD.show_winner()
 		for player in players.values():
 			if player.side == $Arena/ControlPoint.side:
 				player.show_winner()
 			else:
 				player.show_loser()
-		# todo - show winner
 	pass
 
 

@@ -34,8 +34,7 @@ func _ready():
 	rotation_helper = $Rotation_Helper
 	main = get_tree().get_root().get_node("Main")
 	
-	self.look_at(Vector3.ZERO, Vector3.UP) # Look to middle
-	
+	self.look_at(Vector3.ZERO, Vector3.UP) # Look to middle	
 	pass
 	
 
@@ -61,6 +60,9 @@ func set_colour():
 	
 	
 func _physics_process(delta):
+	if main == null:
+		return # Game not started yet
+		
 	if drone:
 		return
 	
