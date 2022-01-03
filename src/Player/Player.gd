@@ -1,24 +1,23 @@
 class_name Player
 extends KinematicBody
 
+const bullet_clazz = preload("res://Bullet.tscn")
+
 const START_HEALTH = 10
 const GRAVITY = -24.8
-var vel = Vector3()
+const MAX_SLOPE_ANGLE = 40
 const MAX_SPEED = 10
 const JUMP_SPEED = 11
 const ACCEL = 4.5
 const DEACCEL= 16
 
+var vel = Vector3()
 var dir = Vector3()
-
-const MAX_SLOPE_ANGLE = 40
 
 var camera
 var rotation_helper
 
 var MOUSE_SENSITIVITY = .2#0.1
-
-const bullet_clazz = preload("res://Bullet.tscn")
 
 var player_id : int
 var drone = false
@@ -159,10 +158,12 @@ func process_movement(delta):
 
 
 func _input(event):
+	if rotation_helper == null or main == null:
+		return # Not ready yet
 	if drone:
 		return
-	if rotation_helper == null:
-		return # Not ready yet
+	if Globals.TURN_BASED and main.current_player.player_id > 0:
+		return
 		
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotation_helper.rotate_x(-deg2rad(event.relative.y * MOUSE_SENSITIVITY))

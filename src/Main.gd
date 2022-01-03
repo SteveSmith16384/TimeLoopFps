@@ -51,6 +51,8 @@ func _input(event):
 		return
 		
 	if players.has(0):
+#		if Globals.TURN_BASED and players[0] != current_player:
+#			return
 		players[0]._input(event)
 	pass
 	
