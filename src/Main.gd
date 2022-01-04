@@ -105,7 +105,6 @@ func start_recording_and_playback():
 	
 	
 func end_of_phase():
-	phase_num += 1
 	if phase_num <= Globals.NUM_PHASES:
 		start_rewinding()
 	else:
@@ -155,10 +154,13 @@ func finished_rewinding():
 		player_turn_idx += 1
 		if player_turn_idx >= players.size():
 			player_turn_idx = 0
+			phase_num += 1
 		current_player = players.values()[player_turn_idx]
-			
+	else:
+		phase_num += 1
+		
 	for d in drones:
-		d.health = Player.START_HEALTH
+		d.health = Globals.START_HEALTH
 		pass
 		
 		
@@ -167,7 +169,7 @@ func finished_rewinding():
 		var player = players[player_id]
 		player.translation = get_node("StartPositions/StartPosition" + str(player_id)).translation
 		player.look_at(Vector3.ZERO, Vector3.UP) # Look to middle
-		player.health = Player.START_HEALTH
+		player.health = Globals.START_HEALTH
 		
 		# Create drones
 		if Globals.TURN_BASED:

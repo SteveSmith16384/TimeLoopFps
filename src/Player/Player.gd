@@ -3,7 +3,6 @@ extends KinematicBody
 
 const bullet_clazz = preload("res://Bullet.tscn")
 
-const START_HEALTH = 10
 const GRAVITY = -24.8
 const MAX_SLOPE_ANGLE = 40
 const MAX_SPEED = 10
@@ -23,7 +22,7 @@ var player_id : int
 var drone = false
 var hud
 var side : int
-var health = START_HEALTH
+var health = Globals.START_HEALTH
 var shot_int : float
 var main
 
@@ -225,7 +224,7 @@ func has_finished_rewinding():
 	
 	
 func collected_health():
-	health = START_HEALTH
+	health = Globals.START_HEALTH
 
 
 func show_winner():

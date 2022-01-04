@@ -12,7 +12,9 @@ const PHASE_DURATION = 10 # 25 todo
 const TURN_BASED = true
 
 # Fixed settings
-const SHOT_INTERVAL : float = 0.5
+const START_HEALTH = 100
+const BULLET_DAMAGE = 25
+const SHOT_INTERVAL : float = 0.4
 
 enum RecType {Movement, Shoot}
 enum RecMode {Recording, Rewinding, Playing}

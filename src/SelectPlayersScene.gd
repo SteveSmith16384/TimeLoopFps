@@ -7,6 +7,15 @@ func _ready():
 	
 	for side in range(0,4):
 		update_player(side)
+		
+	if Globals.TURN_BASED:
+		$Node2D/Label_Settings.text = "Game is Turn-Based"
+	else:
+		$Node2D/Label_Settings.text = "Game is Synchronous"
+		
+	$Node2D/Label_Settings.text += "\nNumber of Phases: " + str(Globals.NUM_PHASES)
+	$Node2D/Label_Settings.text += "\nPhase Duration: " + str(Globals.PHASE_DURATION) + " seconds"
+		
 	pass
 	
 

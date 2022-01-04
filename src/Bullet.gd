@@ -2,7 +2,6 @@ class_name Bullet
 extends Area
 
 var BULLET_SPEED = 40#70
-var BULLET_DAMAGE = 15
 
 const KILL_TIMER = 4
 var timer = 0
@@ -10,7 +9,6 @@ var hit_something = false
 var shooter # to check who is a ghost
 
 func _ready():
-#	main = get_tree().get_root().get_node("Main")
 	pass
 
 
@@ -36,7 +34,7 @@ func _on_Bullet_body_entered(body):
 			
 		if body.is_alive():
 			if shooter.is_alive():
-				body.bullet_hit(BULLET_DAMAGE)
+				body.bullet_hit(Globals.BULLET_DAMAGE)
 
 			hit_something = true
 			queue_free()
