@@ -19,3 +19,9 @@ func _on_Timer_timeout():
 	$FPSLabel.set_text("FPS: " + str(Engine.get_frames_per_second()))
 	pass
 
+
+func show_text(text):
+	$InGame/CenterContainer2/Label.visible = true
+	$InGame/CenterContainer2/Label.text = text
+	pass
+	

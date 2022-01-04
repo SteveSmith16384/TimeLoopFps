@@ -25,11 +25,8 @@ texture = ExtResource( 3 )
 centered = false
 
 [node name="Label" type="Label" parent="CenterContainer"]
-visible = false
-margin_left = -10.0
-margin_top = -6.0
-margin_right = 50.0
-margin_bottom = 45.0
+margin_right = 60.0
+margin_bottom = 51.0
 theme = ExtResource( 1 )
 text = "Go!"
 align = 1

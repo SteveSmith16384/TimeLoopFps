@@ -1,6 +1,6 @@
 extends Area
 
-var side : int
+var side : int = -1
 var players_inside = []
 
 func _on_ControlPoint_body_entered(body):

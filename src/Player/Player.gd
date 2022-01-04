@@ -236,3 +236,7 @@ func show_loser():
 	hud.show_loser()
 	
 	
+func show_draw():
+	hud.show_draw()
+	
+	

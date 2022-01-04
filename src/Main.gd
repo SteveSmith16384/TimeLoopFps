@@ -111,11 +111,20 @@ func end_of_phase():
 	else:
 		game_over = true
 		phase_num = Globals.NUM_PHASES
-		for player in players.values():
-			if player.side == $Arena/ControlPoint.side:
-				player.show_winner()
+		if Globals.TURN_BASED:
+			if $Arena/ControlPoint.side < 0:
+				$HUD.show_text("DRAW!")
 			else:
-				player.show_loser()
+				$HUD.show_text("THE WINNER IS " + Globals.get_colour_from_side($Arena/ControlPoint.side))
+				pass
+		else:
+			for player in players.values():
+				if $Arena/ControlPoint.side < 0:
+					player.show_draw()
+				elif player.side == $Arena/ControlPoint.side:
+					player.show_winner()
+				else:
+					player.show_loser()
 	pass
 
 
