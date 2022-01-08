@@ -6,7 +6,7 @@ func _ready():
 	$InGame/CenterContainer2/Targetter.visible = Globals.TURN_BASED
 	
 	if Globals.SHOW_FPS:
-		$Timer.start()
+		$FPS_Timer.start()
 	pass
 
 
@@ -21,7 +21,7 @@ func _on_Timer_timeout():
 
 
 func show_text(text):
-	$InGame/CenterContainer2/Label.visible = true
-	$InGame/CenterContainer2/Label.text = text
+	$InGame/Label_Main.visible = true
+	$InGame/Label_Main.text = text
 	pass
 	

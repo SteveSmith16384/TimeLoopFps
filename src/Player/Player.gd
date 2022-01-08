@@ -38,19 +38,29 @@ func _ready():
 func set_as_player(_side):
 	drone = false
 	self.side = _side
-	set_colour()
+	update_model()
 	pass
 	
 	
 func set_as_drone(_side, data):
 	drone = true
 	side = _side
-	set_colour()
+	update_model()
+	
 	$Rotation_Helper/Camera/PlayerBulb.queue_free()
 	$RecordActions.actions = data
 	pass
 
 
+func update_model():
+	set_colour()
+	if side == 1:
+		$Mesh/Body/Eyes.transform.y = -1
+		$Mesh/Body/Back.rotation.y = 90
+		pass
+	pass
+	
+	
 func set_colour():
 	$Mesh/Body.mesh.surface_get_material(0).albedo_color = Globals.colors[side]
 	pass
@@ -81,12 +91,6 @@ func process_input(delta):
 
 	var joypad_vec = Vector2()
 	if player_id > 0:
-#		if Input.is_action_pressed("turn_left" + str(player_id)):
-#			rotate_y(deg2rad(4))
-#			pass
-#		elif Input.is_action_pressed("turn_right" + str(player_id)):
-#			rotate_y(deg2rad(-4))
-#			pass
 		var x_input = Input.get_action_strength("turn_left" + str(player_id)) - Input.get_action_strength("turn_right" + str(player_id))
 		rotate_y(deg2rad(x_input*2))
 		
@@ -101,14 +105,17 @@ func process_input(delta):
 	var cam_xform = camera.get_global_transform()
 	var input_movement_vector = Vector2()
 
-	if Input.is_action_pressed("move_forward" + str(player_id)):
-		input_movement_vector.y += 1
-	elif Input.is_action_pressed("move_backward" + str(player_id)):
-		input_movement_vector.y -= 1
-	if Input.is_action_pressed("move_left" + str(player_id)):
-		input_movement_vector.x -= 1
-	elif Input.is_action_pressed("move_right" + str(player_id)):
-		input_movement_vector.x += 1
+	input_movement_vector.y += Input.get_action_strength("move_forward" + str(player_id)) - Input.get_action_strength("move_backward" + str(player_id))
+#	if Input.is_action_pressed("move_forward" + str(player_id)):
+#		input_movement_vector.y += 1
+#	elif Input.is_action_pressed("move_backward" + str(player_id)):
+#		input_movement_vector.y -= 1
+
+	input_movement_vector.x += Input.get_action_strength("move_right" + str(player_id)) - Input.get_action_strength("move_left" + str(player_id))
+#	if Input.is_action_pressed("move_left" + str(player_id)):
+#		input_movement_vector.x -= 1
+#	elif Input.is_action_pressed("move_right" + str(player_id)):
+#		input_movement_vector.x += 1
 
 	input_movement_vector = input_movement_vector.normalized()
 

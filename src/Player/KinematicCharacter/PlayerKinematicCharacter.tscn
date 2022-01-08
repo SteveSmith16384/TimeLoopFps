@@ -12,34 +12,35 @@
 [sub_resource type="CapsuleShape" id=1]
 height = 1.5
 
-[sub_resource type="SpatialMaterial" id=38]
+[sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 0.964706, 1, 0, 1 )
 
-[sub_resource type="SpatialMaterial" id=37]
+[sub_resource type="SpatialMaterial" id=3]
 resource_local_to_scene = true
 albedo_color = Color( 0.243137, 0.301961, 0.780392, 1 )
 
-[sub_resource type="CapsuleMesh" id=2]
+[sub_resource type="CapsuleMesh" id=4]
 resource_local_to_scene = true
-material = SubResource( 37 )
+material = SubResource( 3 )
 radial_segments = 8
 rings = 4
 
-[sub_resource type="CubeMesh" id=3]
-
-[sub_resource type="CubeMesh" id=4]
-
 [sub_resource type="CubeMesh" id=5]
+resource_local_to_scene = true
+
+[sub_resource type="CubeMesh" id=6]
+resource_local_to_scene = true
+
+[sub_resource type="CubeMesh" id=7]
 size = Vector3( 0.6, 0.4, 1 )
 
-[sub_resource type="SphereMesh" id=6]
+[sub_resource type="SphereMesh" id=8]
 radius = 0.375
 height = 0.75
 radial_segments = 32
 rings = 16
 
-[sub_resource type="Animation" id=7]
-resource_name = "Jump"
+[sub_resource type="Animation" id=9]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Mesh/Body:translation")
@@ -222,8 +223,7 @@ tracks/14/keys = {
 "values": [ Vector3( 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "Braking"
+[sub_resource type="Animation" id=10]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -407,7 +407,7 @@ tracks/14/keys = {
 "values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=11]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Mesh/Body:translation")
@@ -590,8 +590,7 @@ tracks/14/keys = {
 "values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "FirstAttack"
+[sub_resource type="Animation" id=12]
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Mesh/Body:translation")
@@ -774,7 +773,7 @@ tracks/14/keys = {
 "values": [ Vector3( 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=13]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Mesh/Body:translation")
@@ -957,7 +956,7 @@ tracks/14/keys = {
 "values": [ Vector3( 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=14]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -1141,8 +1140,7 @@ tracks/14/keys = {
 "values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=13]
-resource_name = "SecondAttack"
+[sub_resource type="Animation" id=15]
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Mesh/Body:translation")
@@ -1325,8 +1323,7 @@ tracks/14/keys = {
 "values": [ Vector3( 1, 1, 1 ), Vector3( 1.5, 1.5, 1.5 ), Vector3( 2, 1, 2 ), Vector3( 1, 2, 1 ), Vector3( 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=14]
-resource_name = "ThirdAttack"
+[sub_resource type="Animation" id=16]
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Mesh/Body:translation")
@@ -1509,7 +1506,7 @@ tracks/14/keys = {
 "values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=17]
 loop = true
 step = 0.05
 tracks/0/type = "value"
@@ -1693,67 +1690,67 @@ tracks/14/keys = {
 "values": [ Vector3( 1, 1, 1 ) ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=16]
+[sub_resource type="AnimationNodeAnimation" id=18]
 animation = "Attached to Wall Falling"
 
-[sub_resource type="AnimationNodeAnimation" id=17]
+[sub_resource type="AnimationNodeAnimation" id=19]
 animation = "Braking"
 
-[sub_resource type="AnimationNodeAnimation" id=18]
+[sub_resource type="AnimationNodeAnimation" id=20]
 animation = "Falling"
 
-[sub_resource type="AnimationNodeAnimation" id=19]
+[sub_resource type="AnimationNodeAnimation" id=21]
 animation = "Idle"
-
-[sub_resource type="AnimationNodeAnimation" id=20]
-animation = "Rising"
-
-[sub_resource type="AnimationNodeTimeScale" id=21]
 
 [sub_resource type="AnimationNodeAnimation" id=22]
-animation = "Walking"
+animation = "Rising"
 
-[sub_resource type="AnimationNodeAnimation" id=23]
-animation = "FirstAttack"
+[sub_resource type="AnimationNodeTimeScale" id=23]
 
 [sub_resource type="AnimationNodeAnimation" id=24]
-animation = "Idle"
+animation = "Walking"
 
 [sub_resource type="AnimationNodeAnimation" id=25]
-animation = "SecondAttack"
+animation = "FirstAttack"
 
 [sub_resource type="AnimationNodeAnimation" id=26]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=27]
+animation = "SecondAttack"
+
+[sub_resource type="AnimationNodeAnimation" id=28]
 animation = "ThirdAttack"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=27]
-switch_mode = 2
-auto_advance = true
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=28]
-switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=29]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachine" id=30]
-states/FirstAttack/node = SubResource( 23 )
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id=32]
+states/FirstAttack/node = SubResource( 25 )
 states/FirstAttack/position = Vector2( 417, 322 )
-states/Idle/node = SubResource( 24 )
+states/Idle/node = SubResource( 26 )
 states/Idle/position = Vector2( 1077, 322 )
-states/SecondAttack/node = SubResource( 25 )
+states/SecondAttack/node = SubResource( 27 )
 states/SecondAttack/position = Vector2( 641, 322 )
-states/ThirdAttack/node = SubResource( 26 )
+states/ThirdAttack/node = SubResource( 28 )
 states/ThirdAttack/position = Vector2( 868, 322 )
-transitions = [ "FirstAttack", "SecondAttack", SubResource( 27 ), "SecondAttack", "ThirdAttack", SubResource( 28 ), "ThirdAttack", "Idle", SubResource( 29 ) ]
+transitions = [ "FirstAttack", "SecondAttack", SubResource( 29 ), "SecondAttack", "ThirdAttack", SubResource( 30 ), "ThirdAttack", "Idle", SubResource( 31 ) ]
 start_node = "FirstAttack"
 end_node = "Idle"
 graph_offset = Vector2( 69, 284.513 )
 
-[sub_resource type="AnimationNodeBlend3" id=31]
+[sub_resource type="AnimationNodeBlend3" id=33]
 
-[sub_resource type="AnimationNodeTransition" id=32]
+[sub_resource type="AnimationNodeTransition" id=34]
 input_count = 4
 xfade_time = 0.1
 input_0/name = "idle"
@@ -1765,40 +1762,40 @@ input_2/auto_advance = false
 input_3/name = "Attacking"
 input_3/auto_advance = false
 
-[sub_resource type="AnimationNodeBlend2" id=33]
+[sub_resource type="AnimationNodeBlend2" id=35]
 
-[sub_resource type="AnimationNodeTimeScale" id=34]
+[sub_resource type="AnimationNodeTimeScale" id=36]
 
-[sub_resource type="AnimationNodeBlendTree" id=35]
+[sub_resource type="AnimationNodeBlendTree" id=37]
 graph_offset = Vector2( -182, 611.25 )
-"nodes/Attached to Wall Animation/node" = SubResource( 16 )
+"nodes/Attached to Wall Animation/node" = SubResource( 18 )
 "nodes/Attached to Wall Animation/position" = Vector2( -320, 600 )
-nodes/BrakingAnimation/node = SubResource( 17 )
+nodes/BrakingAnimation/node = SubResource( 19 )
 nodes/BrakingAnimation/position = Vector2( -220, 240 )
-nodes/FallingAnimation/node = SubResource( 18 )
+nodes/FallingAnimation/node = SubResource( 20 )
 nodes/FallingAnimation/position = Vector2( -160, 380 )
-nodes/IdleAnimation/node = SubResource( 19 )
+nodes/IdleAnimation/node = SubResource( 21 )
 nodes/IdleAnimation/position = Vector2( 140, -60 )
-nodes/RisingAnimation/node = SubResource( 20 )
+nodes/RisingAnimation/node = SubResource( 22 )
 nodes/RisingAnimation/position = Vector2( -160, 760 )
-nodes/TimeScale/node = SubResource( 21 )
+nodes/TimeScale/node = SubResource( 23 )
 nodes/TimeScale/position = Vector2( 368, 654 )
-nodes/WalkingAnimation/node = SubResource( 22 )
+nodes/WalkingAnimation/node = SubResource( 24 )
 nodes/WalkingAnimation/position = Vector2( -360, 100 )
-nodes/attack_state_machine/node = SubResource( 30 )
+nodes/attack_state_machine/node = SubResource( 32 )
 nodes/attack_state_machine/position = Vector2( 120, 640 )
-nodes/in_air_blend/node = SubResource( 31 )
+nodes/in_air_blend/node = SubResource( 33 )
 nodes/in_air_blend/position = Vector2( 140, 440 )
 nodes/output/position = Vector2( 640, 180 )
-nodes/transition/node = SubResource( 32 )
+nodes/transition/node = SubResource( 34 )
 nodes/transition/position = Vector2( 420, 180 )
-nodes/walk_and_brake_blend/node = SubResource( 33 )
+nodes/walk_and_brake_blend/node = SubResource( 35 )
 nodes/walk_and_brake_blend/position = Vector2( 80, 180 )
-nodes/walking_speed/node = SubResource( 34 )
+nodes/walking_speed/node = SubResource( 36 )
 nodes/walking_speed/position = Vector2( -160, 80 )
 node_connections = [ "output", 0, "transition", "transition", 0, "IdleAnimation", "transition", 1, "walk_and_brake_blend", "transition", 2, "in_air_blend", "transition", 3, "TimeScale", "TimeScale", 0, "attack_state_machine", "in_air_blend", 0, "FallingAnimation", "in_air_blend", 1, "Attached to Wall Animation", "in_air_blend", 2, "RisingAnimation", "walk_and_brake_blend", 0, "walking_speed", "walk_and_brake_blend", 1, "BrakingAnimation", "walking_speed", 0, "WalkingAnimation" ]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=36]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=38]
 
 [node name="PlayerKinematicCharacter" type="KinematicBody" groups=[
 "players",
@@ -1824,55 +1821,55 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.878659, -1.83799 )
 [node name="PlayerBulb" type="CSGSphere" parent="Rotation_Helper/Camera"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.476497, 0.478973 )
 radius = 0.3
-material = SubResource( 38 )
+material = SubResource( 2 )
 
 [node name="Mesh" type="Spatial" parent="."]
 
 [node name="Body" type="MeshInstance" parent="Mesh"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.00536802, 0 )
-mesh = SubResource( 2 )
+mesh = SubResource( 4 )
 material/0 = null
 
 [node name="Eyes" type="CSGMesh" parent="Mesh/Body"]
-transform = Transform( 0.6, 0, 0, 0, 0.1, 0, 0, 0, 0.15, 0, -0.890301, -0.358258 )
-mesh = SubResource( 3 )
+transform = Transform( 0.6, 0, 0, 0, 0.1, 0, 0, 0, 0.15, 0, -0.993176, -0.358258 )
+mesh = SubResource( 5 )
 
 [node name="Back" type="CSGMesh" parent="Mesh/Body"]
 transform = Transform( 0.2, 0, 0, 0, 0.1, 0, 0, 0, 0.7, 0, 0.94985, -4.15193e-08 )
-mesh = SubResource( 4 )
+mesh = SubResource( 6 )
 
 [node name="RightFoot" type="CSGMesh" parent="Mesh"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.77, -1.645, 0 )
-mesh = SubResource( 5 )
+mesh = SubResource( 7 )
 
 [node name="LeftFoot" type="CSGMesh" parent="Mesh"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.77, -1.619, 0 )
-mesh = SubResource( 5 )
+mesh = SubResource( 7 )
 
 [node name="RightHand" type="CSGMesh" parent="Mesh"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.414, -0.4, 0 )
-mesh = SubResource( 6 )
+mesh = SubResource( 8 )
 
 [node name="LeftHand" type="CSGMesh" parent="Mesh"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.414, -0.4, 0 )
-mesh = SubResource( 6 )
+mesh = SubResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-"anims/Attached to Wall Falling" = SubResource( 7 )
-anims/Braking = SubResource( 8 )
-anims/Falling = SubResource( 9 )
-anims/FirstAttack = SubResource( 10 )
-anims/Idle = SubResource( 11 )
-anims/Rising = SubResource( 12 )
-anims/SecondAttack = SubResource( 13 )
-anims/ThirdAttack = SubResource( 14 )
-anims/Walking = SubResource( 15 )
+"anims/Attached to Wall Falling" = SubResource( 9 )
+anims/Braking = SubResource( 10 )
+anims/Falling = SubResource( 11 )
+anims/FirstAttack = SubResource( 12 )
+anims/Idle = SubResource( 13 )
+anims/Rising = SubResource( 14 )
+anims/SecondAttack = SubResource( 15 )
+anims/ThirdAttack = SubResource( 16 )
+anims/Walking = SubResource( 17 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 35 )
+tree_root = SubResource( 37 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/TimeScale/scale = 2.0
-parameters/attack_state_machine/playback = SubResource( 36 )
+parameters/attack_state_machine/playback = SubResource( 38 )
 parameters/in_air_blend/blend_amount = 0.0
 parameters/transition/current = 2
 parameters/walk_and_brake_blend/blend_amount = 0.0

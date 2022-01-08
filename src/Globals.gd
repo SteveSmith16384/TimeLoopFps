@@ -8,7 +8,7 @@ const SHOW_FPS = true and !RELEASE_MODE
 
 # Game Settings
 const NUM_PHASES = 3
-const PHASE_DURATION = 10 # 25 todo
+const PHASE_DURATION = 25
 const TURN_BASED = true
 
 # Fixed settings

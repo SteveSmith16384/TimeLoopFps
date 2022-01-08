@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://GamepadTest.gd" type="Script" id=1]
+[ext_resource path="res://Resources/GUI_Theme_Font_Large.tres" type="Theme" id=2]
+
+[node name="GamepadTest" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 707.981
+margin_top = 415.899
+margin_right = 747.981
+margin_bottom = 429.899
+theme = ExtResource( 2 )
+text = "VAL:
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}

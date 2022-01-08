@@ -10,6 +10,17 @@ script = ExtResource( 3 )
 
 [node name="InGame" type="CanvasLayer" parent="."]
 
+[node name="Label_Main" type="Label" parent="InGame"]
+margin_left = 804.584
+margin_top = 338.257
+margin_right = 1107.58
+margin_bottom = 389.257
+theme = ExtResource( 1 )
+text = "THE WINNER IS!!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="CenterContainer" type="CenterContainer" parent="InGame"]
 anchor_top = 1.0
 anchor_right = 1.0
@@ -46,15 +57,6 @@ __meta__ = {
 texture = ExtResource( 4 )
 centered = false
 
-[node name="Label" type="Label" parent="InGame/CenterContainer2"]
-visible = false
-margin_left = -132.0
-margin_top = -6.0
-margin_right = 171.0
-margin_bottom = 45.0
-theme = ExtResource( 1 )
-text = "THE WINNER IS!!"
-
 [node name="FPSLabel" type="Label" parent="."]
 margin_left = 15.119
 margin_top = 13.8591
@@ -66,7 +68,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Timer" type="Timer" parent="."]
+[node name="FPS_Timer" type="Timer" parent="."]
 
 [node name="DebugMode" type="Label" parent="."]
 margin_left = 1784.33
@@ -78,4 +80,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="FPS_Timer" to="." method="_on_Timer_timeout"]
