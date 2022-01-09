@@ -11,6 +11,7 @@ script = ExtResource( 3 )
 [node name="InGame" type="CanvasLayer" parent="."]
 
 [node name="Label_Main" type="Label" parent="InGame"]
+visible = false
 margin_left = 804.584
 margin_top = 338.257
 margin_right = 1107.58

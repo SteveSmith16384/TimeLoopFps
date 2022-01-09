@@ -6,9 +6,12 @@ var BULLET_SPEED = 40#70
 const KILL_TIMER = 4
 var timer = 0
 var hit_something = false
-var shooter # to check who is a ghost
+var shooter
 
 func _ready():
+	$CSGCylinder.material.albedo_color = Globals.colors[shooter.side]
+	if shooter.is_alive() == false:
+		$CSGCylinder.material.albedo_color = $CSGCylinder.material.albedo_color.darkened(0.7)
 	pass
 
 
