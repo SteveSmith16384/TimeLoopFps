@@ -14,10 +14,10 @@ func start(_mode):
 	mode = _mode
 	if mode == Globals.RecMode.Recording:
 		actions = []
-		$Timer_StorePos.wait_time = 0.05
+#		$Timer_StorePos.wait_time = 0.05
 	elif mode == Globals.RecMode.Playing:
 		pointer = 0
-		$Timer_StorePos.wait_time = 0.05
+#		$Timer_StorePos.wait_time = 0.05
 	elif mode == Globals.RecMode.Rewinding:
 		pointer = actions.size()-1
 #		end_time_diff = actions[pointer].time
@@ -47,7 +47,7 @@ func _on_Timer_StorePos_timeout():
 			var total_duration = Globals.PHASE_DURATION * 1000
 			var so_far = OS.get_ticks_msec() - start_time_global
 			var time = total_duration - (so_far * 5)
-			print("Time:" + str(time))
+			#print("Time:" + str(time))
 			while peek.time >= time and pointer > 0:
 				if peek.type == Globals.RecType.Movement:
 					get_parent().translation = peek.pos
