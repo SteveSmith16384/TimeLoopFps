@@ -52,7 +52,8 @@ Globals="*res://Globals.gd"
 
 window/size/width=1920
 window/size/height=1080
-window/size/resizable=false
+window/size/test_width=800
+window/size/test_height=600
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
