@@ -2,9 +2,9 @@ class_name Main
 extends Spatial
 
 const player_class = preload("res://Player/KinematicCharacter/PlayerKinematicCharacter.tscn")
-const tiny_expl = preload("res://TinyExplosion.tscn")	
-const small_expl = preload("res://SmallExplosion.tscn")	
-const big_expl = preload("res://BigExplosion.tscn")	
+const tiny_expl = preload("res://TinyExplosion.tscn")
+const small_expl = preload("res://SmallExplosion.tscn")
+const big_expl = preload("res://BigExplosion.tscn")
 
 var time : float = Globals.PHASE_DURATION
 var game_over = false
@@ -24,7 +24,7 @@ func _ready():
 	for player_id in Globals.player_nums:
 		var player = player_class.instance()
 		player.player_id = player_id
-		player.set_as_player(player_id)
+		player.set_as_player(self, player_id)
 		player.translation = get_node("StartPositions/StartPosition" + str(player_id)).translation
 		player.look_at(Vector3.ZERO, Vector3.UP) # Look to middle
 
@@ -81,12 +81,12 @@ func _process(delta):
 		if all_finished:
 			finished_rewinding()
 			return
-			
-	time -= delta
-	if time < 0:
-		time = 0
-		if rewinding == false:
-			end_of_phase()
+	else:
+		time -= delta
+		if time < 0:
+			time = 0
+			if rewinding == false:
+				end_of_phase()
 	pass
 
 
@@ -163,7 +163,12 @@ func finished_rewinding():
 		phase_num += 1
 		
 	for d in drones:
-		d.health = Globals.START_HEALTH
+		if d.phase_born + Globals.DRONE_LIFETIME < phase_num:
+			d.queue_free()
+			drones.erase(d)
+		else:
+#			d.health = Globals.START_HEALTH
+			d.reset_health()
 		pass
 		
 		
@@ -172,7 +177,8 @@ func finished_rewinding():
 		var player = players[player_id]
 		player.translation = get_node("StartPositions/StartPosition" + str(player_id)).translation
 		player.look_at(Vector3.ZERO, Vector3.UP) # Look to middle
-		player.health = Globals.START_HEALTH
+#		player.health = Globals.START_HEALTH
+		player.reset_health()
 		
 		# Create drones
 		if Globals.TURN_BASED:
@@ -182,7 +188,7 @@ func finished_rewinding():
 		var drone = player_class.instance()
 		drone.player_id = player_id
 		var action_data = player.get_action_data()
-		drone.set_as_drone(player_id, action_data)
+		drone.set_as_drone(self, player_id, action_data)
 		drone.translation = get_node("StartPositions/StartPosition" + str(player_id)).translation
 		#drone.look_at(Vector3.ZERO, Vector3.UP) # Look to middle
 		self.add_child(drone)

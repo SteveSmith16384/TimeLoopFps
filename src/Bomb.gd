@@ -37,5 +37,5 @@ func _on_Area_body_entered(body):
 
 func _on_Area_body_exited(body):
 	if body.is_in_group("Ants"):
-		ants.remove(ants.find(body))
+		ants.erase(body)
 	pass

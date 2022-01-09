@@ -25,27 +25,32 @@ var side : int
 var health = Globals.START_HEALTH
 var shot_int : float
 var main
+var phase_born : int
+
 
 func _ready():
 	camera = $Rotation_Helper/Camera
 	rotation_helper = $Rotation_Helper
-	main = get_tree().get_root().get_node("Main")
+#	main = get_tree().get_root().get_node("Main")
 	
 	self.look_at(Vector3.ZERO, Vector3.UP) # Look to middle
 	pass
 	
 
-func set_as_player(_side):
+func set_as_player(_main, _side):
+	main = _main
 	drone = false
 	self.side = _side
 	update_model()
 	pass
 	
 	
-func set_as_drone(_side, data):
+func set_as_drone(_main, _side, data):
+	main = _main
 	drone = true
 	side = _side
 	update_model()
+	phase_born = main.phase_num
 	
 	$Rotation_Helper/Camera/PlayerBulb.queue_free()
 	$RecordActions.actions = data
@@ -58,6 +63,12 @@ func update_model():
 		$Mesh/Body/Eyes.translation.y = -1
 		$Mesh/Body/Back.rotation.y = 90
 		pass
+	pass
+	
+
+func reset_health():
+	health = Globals.START_HEALTH
+	set_colour()
 	pass
 	
 	

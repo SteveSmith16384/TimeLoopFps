@@ -23,6 +23,6 @@ func _on_ControlPoint_body_entered(body):
 
 func _on_ControlPoint_body_exited(body):
 	if body.is_in_group("players"):
-		players_inside.remove(players_inside.find(body))
+		players_inside.erase(body)
 	pass
 	
