@@ -40,8 +40,13 @@ func _on_Bullet_body_entered(body):
 				body.bullet_hit(Globals.BULLET_DAMAGE)
 
 			hit_something = true
+			var main = get_tree().get_root().get_node("Main")
+			main.small_explosion(self)
 			queue_free()
 	else:
 		hit_something = true
+		var main = get_tree().get_root().get_node("Main")
+		main.tiny_explosion(self)
 		queue_free()
 	pass
+	

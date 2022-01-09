@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Explosion.gd" type="Script" id=1]
+[ext_resource path="res://Resources/JetParticles.tres" type="CubeMesh" id=3]
+
+[node name="BigExplosion" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="CPUParticles" type="CPUParticles" parent="."]
+cast_shadow = 0
+amount = 148
+lifetime = 4.0
+explosiveness = 1.0
+mesh = ExtResource( 3 )
+direction = Vector3( 1, 1, 1 )
+spread = 180.0
+gravity = Vector3( 0, -2, 0 )
+initial_velocity = 10.0
+initial_velocity_random = 0.2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer3D" parent="."]
+unit_db = 1.0
+unit_size = 10.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

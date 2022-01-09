@@ -1,0 +1,18 @@
+[gd_resource type="CubeMesh" load_steps=2 format=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_transparent = true
+flags_vertex_lighting = true
+flags_do_not_receive_shadows = true
+albedo_color = Color( 1, 0.843137, 0, 0.0862745 )
+metallic = 1.0
+roughness = 0.0
+emission_enabled = true
+emission = Color( 1, 1, 0, 1 )
+emission_energy = 16.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[resource]
+material = SubResource( 1 )
+size = Vector3( 0.1, 0.1, 0.1 )

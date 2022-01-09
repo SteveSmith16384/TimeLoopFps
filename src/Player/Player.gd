@@ -54,8 +54,8 @@ func set_as_drone(_side, data):
 
 func update_model():
 	set_colour()
-	if side == 1:
-		$Mesh/Body/Eyes.transform.y = -1
+	if side == 2:
+		$Mesh/Body/Eyes.translation.y = -1
 		$Mesh/Body/Back.rotation.y = 90
 		pass
 	pass

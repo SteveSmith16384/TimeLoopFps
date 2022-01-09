@@ -12,35 +12,35 @@
 [sub_resource type="CapsuleShape" id=1]
 height = 1.5
 
-[sub_resource type="SpatialMaterial" id=2]
+[sub_resource type="SpatialMaterial" id=39]
 albedo_color = Color( 0.964706, 1, 0, 1 )
 
-[sub_resource type="SpatialMaterial" id=3]
+[sub_resource type="SpatialMaterial" id=40]
 resource_local_to_scene = true
 albedo_color = Color( 0.243137, 0.301961, 0.780392, 1 )
 
-[sub_resource type="CapsuleMesh" id=4]
+[sub_resource type="CapsuleMesh" id=41]
 resource_local_to_scene = true
-material = SubResource( 3 )
+material = SubResource( 40 )
 radial_segments = 8
 rings = 4
 
-[sub_resource type="CubeMesh" id=5]
+[sub_resource type="CubeMesh" id=42]
 resource_local_to_scene = true
 
-[sub_resource type="CubeMesh" id=6]
+[sub_resource type="CubeMesh" id=43]
 resource_local_to_scene = true
 
-[sub_resource type="CubeMesh" id=7]
+[sub_resource type="CubeMesh" id=44]
 size = Vector3( 0.6, 0.4, 1 )
 
-[sub_resource type="SphereMesh" id=8]
+[sub_resource type="SphereMesh" id=45]
 radius = 0.375
 height = 0.75
 radial_segments = 32
 rings = 16
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=46]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Mesh/Body:translation")
@@ -223,7 +223,7 @@ tracks/14/keys = {
 "values": [ Vector3( 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=47]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -407,7 +407,7 @@ tracks/14/keys = {
 "values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=48]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Mesh/Body:translation")
@@ -590,7 +590,7 @@ tracks/14/keys = {
 "values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=49]
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Mesh/Body:translation")
@@ -773,7 +773,7 @@ tracks/14/keys = {
 "values": [ Vector3( 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=50]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Mesh/Body:translation")
@@ -956,7 +956,7 @@ tracks/14/keys = {
 "values": [ Vector3( 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=51]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -1140,7 +1140,7 @@ tracks/14/keys = {
 "values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=52]
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Mesh/Body:translation")
@@ -1323,7 +1323,7 @@ tracks/14/keys = {
 "values": [ Vector3( 1, 1, 1 ), Vector3( 1.5, 1.5, 1.5 ), Vector3( 2, 1, 2 ), Vector3( 1, 2, 1 ), Vector3( 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=53]
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Mesh/Body:translation")
@@ -1506,7 +1506,7 @@ tracks/14/keys = {
 "values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=54]
 loop = true
 step = 0.05
 tracks/0/type = "value"
@@ -1821,49 +1821,49 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.878659, -1.83799 )
 [node name="PlayerBulb" type="CSGSphere" parent="Rotation_Helper/Camera"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.476497, 0.478973 )
 radius = 0.3
-material = SubResource( 2 )
+material = SubResource( 39 )
 
 [node name="Mesh" type="Spatial" parent="."]
 
 [node name="Body" type="MeshInstance" parent="Mesh"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.00536802, 0 )
-mesh = SubResource( 4 )
+mesh = SubResource( 41 )
 material/0 = null
 
 [node name="Eyes" type="CSGMesh" parent="Mesh/Body"]
 transform = Transform( 0.6, 0, 0, 0, 0.1, 0, 0, 0, 0.15, 0, -0.993176, -0.358258 )
-mesh = SubResource( 5 )
+mesh = SubResource( 42 )
 
 [node name="Back" type="CSGMesh" parent="Mesh/Body"]
 transform = Transform( 0.2, 0, 0, 0, 0.1, 0, 0, 0, 0.7, 0, 0.94985, -4.15193e-08 )
-mesh = SubResource( 6 )
+mesh = SubResource( 43 )
 
 [node name="RightFoot" type="CSGMesh" parent="Mesh"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.77, -1.645, 0 )
-mesh = SubResource( 7 )
+mesh = SubResource( 44 )
 
 [node name="LeftFoot" type="CSGMesh" parent="Mesh"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.77, -1.619, 0 )
-mesh = SubResource( 7 )
+mesh = SubResource( 44 )
 
 [node name="RightHand" type="CSGMesh" parent="Mesh"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.414, -0.4, 0 )
-mesh = SubResource( 8 )
+mesh = SubResource( 45 )
 
 [node name="LeftHand" type="CSGMesh" parent="Mesh"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.414, -0.4, 0 )
-mesh = SubResource( 8 )
+mesh = SubResource( 45 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-"anims/Attached to Wall Falling" = SubResource( 9 )
-anims/Braking = SubResource( 10 )
-anims/Falling = SubResource( 11 )
-anims/FirstAttack = SubResource( 12 )
-anims/Idle = SubResource( 13 )
-anims/Rising = SubResource( 14 )
-anims/SecondAttack = SubResource( 15 )
-anims/ThirdAttack = SubResource( 16 )
-anims/Walking = SubResource( 17 )
+"anims/Attached to Wall Falling" = SubResource( 46 )
+anims/Braking = SubResource( 47 )
+anims/Falling = SubResource( 48 )
+anims/FirstAttack = SubResource( 49 )
+anims/Idle = SubResource( 50 )
+anims/Rising = SubResource( 51 )
+anims/SecondAttack = SubResource( 52 )
+anims/ThirdAttack = SubResource( 53 )
+anims/Walking = SubResource( 54 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 37 )

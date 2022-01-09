@@ -2,6 +2,9 @@ class_name Main
 extends Spatial
 
 const player_class = preload("res://Player/KinematicCharacter/PlayerKinematicCharacter.tscn")
+const tiny_expl = preload("res://TinyExplosion.tscn")	
+const small_expl = preload("res://SmallExplosion.tscn")	
+const big_expl = preload("res://BigExplosion.tscn")	
 
 var time : float = Globals.PHASE_DURATION
 var game_over = false
@@ -191,3 +194,27 @@ func finished_rewinding():
 	start_recording_and_playback()
 	pass
 	
+
+func tiny_explosion(spatial):
+	#var expl = load("res://TinyExplosion.tscn")	
+	var i = tiny_expl.instance()
+	add_child(i)
+	i.translation = spatial.global_transform.origin
+	pass
+	
+	
+func small_explosion(spatial):
+	var i = small_expl.instance()
+	add_child(i)
+	i.translation = spatial.global_transform.origin
+	pass
+	
+	
+func big_explosion(spatial):
+	#var big_expl = load("res://BigExplosion.tscn")	
+	var i = big_expl.instance()
+	add_child(i)
+	i.translation = spatial.global_transform.origin
+	pass
+	
+
