@@ -4,11 +4,15 @@ A Quantum League/Lemnis Gate clone written in Godot.
 
 Programmed by Stephen Smith (stephen.carlylesmith@googlemail.com).  Twitter: @stephencsmith
 
-Gameplay Video: https://www.youtube.com/watch?v=f0tDeBsiQI8
+Gameplay Video: https://www.youtube.com/watch?v=OLiAZ7TgADU
+
+
+HOW TO PLAY
+It's probably best just read how Quantum League played.  This game has both asynchronous and turn-based gameplay (depending on the setting).
 
 
 CURRENT STATE
-It all seems to work, but it's very unpolished.
+It all seems to work, but it's very unpolished.  And the arena could do with rearranging.
 
 
 DEV NOTES
