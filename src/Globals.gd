@@ -8,8 +8,8 @@ const SHOW_FPS = true and !RELEASE_MODE
 
 # Game Settings
 const NUM_PHASES = 3
-const DRONE_LIFETIME = 1
-const PHASE_DURATION = 10#25
+const DRONE_LIFETIME = NUM_PHASES
+const PHASE_DURATION = 25
 const TURN_BASED = true
 
 # Fixed settings

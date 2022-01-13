@@ -31,7 +31,6 @@ var phase_born : int
 func _ready():
 	camera = $Rotation_Helper/Camera
 	rotation_helper = $Rotation_Helper
-#	main = get_tree().get_root().get_node("Main")
 	
 	self.look_at(Vector3.ZERO, Vector3.UP) # Look to middle
 	pass
@@ -59,9 +58,11 @@ func set_as_drone(_main, _side, data):
 
 func update_model():
 	set_colour()
-	if side == 2:
+	if side == 1:
+		$Mesh/Body/Eyes.translation.z = -0.8
+	elif side == 2:
 		$Mesh/Body/Eyes.translation.y = -1
-		$Mesh/Body/Back.rotation.y = 90
+		$Mesh/Body/Back.rotation_degrees.y = 90
 		pass
 	pass
 	

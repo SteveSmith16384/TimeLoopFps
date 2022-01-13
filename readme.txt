@@ -1,6 +1,23 @@
+TIME POTATOES
+
+A Quantum League/Lemnis Gate clone written in Godot.
+
+Programmed by Stephen Smith (stephen.carlylesmith@googlemail.com).  Twitter: @stephencsmith
+
+Gameplay Video: https://www.youtube.com/watch?v=f0tDeBsiQI8
+
+
+CURRENT STATE
+It all seems to work, but it's very unpolished.
+
+
+DEV NOTES
+The file Globals.gd has various settings which you can change.
+
+
 CREDITS:
-Level https://github.com/Whimfoome/godot-FirstPersonStarter
-Avatars: https://bitbucket.org/CaioFelipe/godotkinematiccharacter/
+* Level https://github.com/Whimfoome/godot-FirstPersonStarter
+* Avatars: https://bitbucket.org/CaioFelipe/godotkinematiccharacter/
 * Shooting sfx: https://opengameart.org/content/4-projectile-launches
 * In-game music by  Ville Nousiainen (http://soundcloud.com/mutkanto)
 * Replenish Life Force Copyright 2013 Iwan Gabovitch http://freesound.org/people/qubodup/

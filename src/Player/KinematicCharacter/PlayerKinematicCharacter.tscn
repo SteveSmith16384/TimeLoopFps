@@ -1831,7 +1831,7 @@ mesh = SubResource( 41 )
 material/0 = null
 
 [node name="Eyes" type="CSGMesh" parent="Mesh/Body"]
-transform = Transform( 0.6, 0, 0, 0, 0.1, 0, 0, 0, 0.15, 0, -0.993176, -0.358258 )
+transform = Transform( 0.6, 0, 0, 0, 0.1, 0, 0, 0, 0.15, 0, -0.804871, -0.358 )
 mesh = SubResource( 42 )
 
 [node name="Back" type="CSGMesh" parent="Mesh/Body"]
